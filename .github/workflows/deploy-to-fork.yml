@@ -21,6 +21,7 @@ jobs:
           source-directory: '.'
           destination-github-username: GraceKim527
           destination-repository-name: LikeLion-13th-TEAM06-FE
+          user-name: GraceKim527
           user-email: ${{ secrets.PERSONAL_EMAIL }}
           target-branch: main
           commit-message: '🔁 Sync from team repo: ${{ github.sha }}'
