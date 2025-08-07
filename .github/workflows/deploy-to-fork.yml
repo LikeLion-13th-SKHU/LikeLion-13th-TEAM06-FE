@@ -16,7 +16,7 @@ jobs:
         uses: cpina/github-action-push-to-another-repository@main
 
         env:
-          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_REPO_TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.PAT_FOR_SYNC }}
         with:
           source-directory: '.'
           destination-github-username: GraceKim527
