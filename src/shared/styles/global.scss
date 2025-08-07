@@ -1,0 +1,28 @@
+@import './_breakpoints.scss';
+@import './_mixins.scss';
+@import './_variables.scss';
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css');
+
+html,
+body {
+  height: 100vh;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    Roboto,
+    'Helvetica Neue',
+    'Segoe UI',
+    'Apple SD Gothic Neo',
+    sans-serif;
+}
+
+body {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 16px;
+  overflow-x: hidden;
+}
