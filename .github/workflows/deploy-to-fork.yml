@@ -12,9 +12,10 @@ jobs:
     steps:
       - name: Checkout team repo
         uses: actions/checkout@v3
-
+      - run: echo "token=${{ secrets.PERSONAL_REPO_TOKEN }}" >> $GITHUB_ENV
       - name: Push to personal repo
         uses: cpina/github-action-push-to-another-repository@main
+
         env:
           API_TOKEN_GITHUB: ${{ secrets.PERSONAL_REPO_TOKEN }}
         with:
