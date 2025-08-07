@@ -23,4 +23,4 @@ jobs:
           destination-repository-name: LikeLion-13th-TEAM06-FE
           user-email: ${{ secrets.PERSONAL_EMAIL }}
           target-branch: main
-          commit-message: '🔁 Sync from team repo ${{ github.sha }}'
+          commit-message: '🔁 Sync from team repo: ${{ github.sha }}'
