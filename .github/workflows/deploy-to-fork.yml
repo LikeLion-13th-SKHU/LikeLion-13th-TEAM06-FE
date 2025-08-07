@@ -14,13 +14,13 @@ jobs:
         uses: actions/checkout@v3
       - name: Push to personal repo
         uses: cpina/github-action-push-to-another-repository@main
-
         env:
           API_TOKEN_GITHUB: ${{ secrets.PERSONAL_REPO_TOKEN }}
         with:
           source-directory: '.'
           destination-github-username: GraceKim527
           destination-repository-name: LikeLion-13th-TEAM06-FE
-          user-email: ${{ secrets.PERSONAL_EMAIL }}
+          user-email: github-actions[bot]@users.noreply.github.com # ✅ 이걸로 설정!
+          user-name: github-actions[bot] # ✅ 이걸로 설정!
           target-branch: main
           commit-message: '🔁 Sync from team repo: ${{ github.sha }}'
