@@ -1,0 +1,26 @@
+name: Sync to Personal Repo for Vercel Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout team repo
+        uses: actions/checkout@v3
+
+      - name: Push to personal repo
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_REPO_TOKEN }}
+        with:
+          source-directory: '.'
+          destination-github-username: GraceKim527
+          destination-repository-name: LikeLion-13th-TEAM06-FE
+          user-email: ${{ secrets.PERSONAL_EMAIL }}
+          commit-message: '🔁 Sync from team repo: ${{ github.sha }}'
+          target-branch: main
