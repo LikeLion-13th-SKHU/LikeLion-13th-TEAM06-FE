@@ -23,3 +23,14 @@ body {
   padding: 0 16px;
   overflow-x: hidden;
 }
+
+:root {
+  // 웹뷰를 위한 안전 영역 변수
+  --safe-area-top: env(safe-area-inset-top);
+  --safe-area-bottom: env(safe-area-inset-bottom);
+}
+
+.main-with-header {
+  /* --header-inner-h는 헤더 SCSS에서 56px로 정의 */
+  padding-top: calc(var(--safe-area-top) + 56px);
+}
