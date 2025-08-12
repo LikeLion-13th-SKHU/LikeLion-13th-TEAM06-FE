@@ -8,11 +8,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `
-          @import "@/shared/styles/_variables.scss";
-          @import "@/shared/styles/_breakpoints.scss";
-          @import "@/shared/styles/_mixins.scss";
-        `,
+        // additionalData 제거 - global.scss에서 @use로 처리
       },
     },
   },
