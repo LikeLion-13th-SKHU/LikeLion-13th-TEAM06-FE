@@ -2,6 +2,8 @@
 
 import { useHeader } from '@/shared/contexts/HeaderContext';
 import { useEffect } from 'react';
+import NewsRowCard from '@/features/news/components/NewsCard/NewsRowCard/NewsRowCard';
+import { newsMock } from '@/features/news/mocks/newsMock';
 
 export default function HomePage() {
   const { setConfig } = useHeader();
@@ -18,5 +20,11 @@ export default function HomePage() {
     });
   }, [setConfig]);
 
-  return <div>홈 콘텐츠</div>;
+  return (
+    <div>
+      {newsMock.map((item) => (
+        <NewsRowCard key={item.id} item={item} />
+      ))}
+    </div>
+  );
 }

@@ -34,3 +34,13 @@ body {
   /* --header-inner-h는 헤더 SCSS에서 56px로 정의 */
   padding-top: calc(var(--safe-area-top) + 56px);
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}

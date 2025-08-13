@@ -14,3 +14,7 @@ $palette: (
   'gray-950': #070b13,
   'white': #ffffff,
 );
+
+@function palette($color) {
+  @return map-get($palette, $color);
+}
