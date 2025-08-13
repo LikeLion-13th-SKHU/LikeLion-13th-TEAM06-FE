@@ -1,6 +1,6 @@
 // src/features/news/components/NewsCard/NewsColumnCard/NewsColumnCard.module.scss
 
-@use '@/shared/styles/_functions.scss' as *;
+@use '@/shared/styles/_variables.scss' as *;
 
 .newsColumnCardRoot {
   display: flex;

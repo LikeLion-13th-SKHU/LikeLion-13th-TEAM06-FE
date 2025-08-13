@@ -21,9 +21,9 @@ export default function HomePage() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', margin: '16px 0' }}>
-      <NewsSection title="🔥 실시간 HOT ISSUE" link="/news" />
-      <NewsSection title="💡 은혜님 맞춤형 소식" link="/news" />
-      <NewsSection title="☘️ 우리 동네 소식" link="/news" layout="column" />
+      <NewsSection title="🔥 실시간 HOT ISSUE" link="/news/hot" />
+      <NewsSection title="💡 은혜님 맞춤형 소식" link="/news/for-you" />
+      <NewsSection title="☘️ 우리 동네 소식" link="/news/local" layout="column" />
     </div>
   );
 }

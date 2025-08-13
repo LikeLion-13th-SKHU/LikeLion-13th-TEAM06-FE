@@ -1,4 +1,6 @@
-@use '@/shared/styles/_functions.scss' as *;
+// src/features/news/components/NewsCard/NewsRowCard/NewsRowCard.module.scss
+
+@use '@/shared/styles/_variables.scss' as *;
 
 .newsCardRoot {
   display: flex;

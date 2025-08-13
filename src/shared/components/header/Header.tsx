@@ -6,6 +6,7 @@ import '@/shared/styles/_header.scss';
 import bookmarkIcon from '@/assets/svg/bookmark.svg';
 import bellIcon from '@/assets/svg/bell.svg';
 import userIcon from '@/assets/svg/user.svg';
+import chevronLeftIcon from '@/assets/svg/chevronLeft.svg';
 
 function ActionIcon({ id, onClick, label }: { id: string; onClick?: () => void; label?: string }) {
   const icon =
@@ -61,11 +62,19 @@ export default function Header({ config }: { config: HeaderConfig }) {
               aria-label="뒤로가기"
               onClick={() => (config.backTo ? (location.href = config.backTo) : history.back())}
             >
-              ←
+              <img src={chevronLeftIcon} alt="뒤로가기" width="24" height="24" />
             </button>
           </div>
           <div className="title">{config.title}</div>
           {Right}
+          <button
+            style={{ visibility: 'hidden' }}
+            className="icon"
+            aria-label="뒤로가기"
+            onClick={() => (config.backTo ? (location.href = config.backTo) : history.back())}
+          >
+            <img src={chevronLeftIcon} alt="뒤로가기" width="24" height="24" />
+          </button>
         </div>
       </header>
     );
