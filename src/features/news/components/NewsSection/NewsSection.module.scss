@@ -1,0 +1,33 @@
+// src/features/news/components/NewsSection/NewsSection.module.scss
+
+@use '@/shared/styles/index.scss' as *;
+
+.newsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.newsSectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newsSectionTitle {
+  color: palette('gray-900');
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 160%;
+  letter-spacing: 0.2px;
+}
+
+.newsSectionMore {
+  color: palette('gray-500');
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.14px;
+  text-decoration: none;
+}

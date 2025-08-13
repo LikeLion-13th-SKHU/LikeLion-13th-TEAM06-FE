@@ -17,4 +17,11 @@ export const newsMock: NewsItem[] = [
     thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
     likes: 20,
   },
+  {
+    id: '3',
+    title:
+      '뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 ',
+    thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
+    likes: 20,
+  },
 ];

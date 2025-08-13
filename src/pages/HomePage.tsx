@@ -2,8 +2,7 @@
 
 import { useHeader } from '@/shared/contexts/HeaderContext';
 import { useEffect } from 'react';
-import NewsRowCard from '@/features/news/components/NewsCard/NewsRowCard/NewsRowCard';
-import { newsMock } from '@/features/news/mocks/newsMock';
+import NewsSection from '@/features/news/components/NewsSection/NewsSection';
 
 export default function HomePage() {
   const { setConfig } = useHeader();
@@ -21,10 +20,9 @@ export default function HomePage() {
   }, [setConfig]);
 
   return (
-    <div>
-      {newsMock.map((item) => (
-        <NewsRowCard key={item.id} item={item} />
-      ))}
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', margin: '16px 0' }}>
+      <NewsSection title="🔥 실시간 HOT ISSUE" link="/news" />
+      <NewsSection title="💡 은혜님 맞춤형 소식" link="/news" />
     </div>
   );
 }
