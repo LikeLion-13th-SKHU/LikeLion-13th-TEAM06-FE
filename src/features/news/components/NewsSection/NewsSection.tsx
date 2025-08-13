@@ -1,5 +1,6 @@
 // src/features/news/components/NewsSection/NewsSection.tsx
 
+import NewsColumnList from '@/features/news/components/NewsList/NewsColumnList/NewsColumnList';
 import NewsRowList from '@/features/news/components/NewsList/NewsRowList/NewsRowList';
 import { newsMock } from '@/features/news/mocks/newsMock';
 import styles from './NewsSection.module.scss';
@@ -9,9 +10,15 @@ interface NewsSectionProps {
   title: string;
   link: string;
   items?: typeof newsMock;
+  layout?: 'row' | 'column';
 }
 
-export default function NewsSection({ title, link, items = newsMock }: NewsSectionProps) {
+export default function NewsSection({
+  title,
+  link,
+  items = newsMock,
+  layout = 'row',
+}: NewsSectionProps) {
   return (
     <section className={styles.newsSection}>
       <div className={styles.newsSectionHeader}>
@@ -20,7 +27,7 @@ export default function NewsSection({ title, link, items = newsMock }: NewsSecti
           더보기
         </Link>
       </div>
-      <NewsRowList items={items} />
+      {layout === 'row' ? <NewsRowList items={items} /> : <NewsColumnList items={items} />}
     </section>
   );
 }
