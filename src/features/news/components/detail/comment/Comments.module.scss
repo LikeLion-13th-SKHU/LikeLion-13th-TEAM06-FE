@@ -1,0 +1,141 @@
+// src/features/news/components/detail/comment/Comments.module.scss
+
+@use '@/shared/styles/_variables.scss' as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 0 var(--comments-bottom-pad, 16px);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 16px;
+
+  h3 {
+    color: palette('gray-900');
+    font-weight: 500;
+    line-height: 140%;
+    letter-spacing: 0.16px;
+  }
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  gap: 8px;
+  align-items: start;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  object-fit: cover;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.createdAt {
+  color: palette('gray-500');
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 140%;
+  letter-spacing: 0.12px;
+  color: palette('gray-500');
+}
+
+.nick {
+  font-weight: 600;
+  font-size: 14px;
+}
+.content {
+  grid-column: 2 / span 2;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.delBtn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 13px;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  &:hover {
+    background: #f3f4f6;
+    color: #6b7280;
+  }
+}
+
+/* 하단 입력 바 */
+.inputDock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(env(safe-area-inset-bottom, 0px));
+  z-index: 1100;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: saturate(180%) blur(8px);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.inputRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: end;
+}
+
+.textarea {
+  min-height: 40px;
+  max-height: 120px;
+  resize: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  font-size: 14px;
+  line-height: 1.4;
+  background: #fff;
+  &:focus {
+    border-color: #d1d5db;
+  }
+}
+
+.submitBtn {
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: none;
+  background: palette('primary');
+  color: palette('gray-900');
+  font-weight: 700;
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.inputDock.withVV {
+  bottom: calc(env(safe-area-inset-bottom, 0px) + var(--vvb, 0px));
+}

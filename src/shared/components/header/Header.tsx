@@ -3,18 +3,19 @@
 import type { HeaderConfig } from '@/shared/contexts/HeaderContext';
 import { useHideOnScroll } from '@/shared/hooks/useHideOnScroll';
 import '@/shared/styles/_header.scss';
-import bookmarkIcon from '@/assets/svg/bookmark.svg';
 import bellIcon from '@/assets/svg/bell.svg';
 import userIcon from '@/assets/svg/user.svg';
+import chevronLeftIcon from '@/assets/svg/chevronLeft.svg';
+import shareIcon from '@/assets/svg/export.svg';
 
 function ActionIcon({ id, onClick, label }: { id: string; onClick?: () => void; label?: string }) {
   const icon =
-    id === 'bookmark' ? (
-      <img src={bookmarkIcon} alt="북마크" width="24" height="24" />
-    ) : id === 'mypage' ? (
+    id === 'mypage' ? (
       <img src={userIcon} alt="마이페이지" width="24" height="24" />
     ) : id === 'notification' ? (
       <img src={bellIcon} alt="알림" width="24" height="24" />
+    ) : id === 'share' ? (
+      <img src={shareIcon} alt="공유" width="24" height="24" />
     ) : (
       '⋯'
     );
@@ -61,7 +62,35 @@ export default function Header({ config }: { config: HeaderConfig }) {
               aria-label="뒤로가기"
               onClick={() => (config.backTo ? (location.href = config.backTo) : history.back())}
             >
-              ←
+              <img src={chevronLeftIcon} alt="뒤로가기" width="24" height="24" />
+            </button>
+          </div>
+          <div className="title">{config.title}</div>
+          {Right}
+          <button
+            style={{ visibility: 'hidden' }}
+            className="icon"
+            aria-label="뒤로가기"
+            onClick={() => (config.backTo ? (location.href = config.backTo) : history.back())}
+          >
+            <img src={chevronLeftIcon} alt="뒤로가기" width="24" height="24" />
+          </button>
+        </div>
+      </header>
+    );
+  }
+
+  if (config.kind === 'detail') {
+    return (
+      <header className={`header-root ${isHidden ? 'is-hidden' : ''}`}>
+        <div className="header-inner">
+          <div className="left">
+            <button
+              className="icon"
+              aria-label="뒤로가기"
+              onClick={() => (config.backTo ? (location.href = config.backTo) : history.back())}
+            >
+              <img src={chevronLeftIcon} alt="뒤로가기" width="24" height="24" />
             </button>
           </div>
           <div className="title">{config.title}</div>

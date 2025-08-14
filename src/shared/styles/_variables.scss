@@ -1,3 +1,7 @@
+// src/shared/styles/_variables.scss
+
+@use 'sass:map';
+
 // Color Palette
 $palette: (
   'primary': #ffd939,
@@ -13,4 +17,9 @@ $palette: (
   'gray-900': #121823,
   'gray-950': #070b13,
   'white': #ffffff,
+  'yellow-950': #3a1d0b,
 );
+
+@function palette($color) {
+  @return map.get($palette, $color);
+}
