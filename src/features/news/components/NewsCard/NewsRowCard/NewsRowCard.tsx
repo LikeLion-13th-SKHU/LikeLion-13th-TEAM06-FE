@@ -16,9 +16,12 @@ export default function NewsRowCard({ item }: { item: NewsItem }) {
         </div>
         <div className={styles.newsCardContent}>
           <h3 className={styles.newsCardTitle}>{item.title}</h3>
-          <div className={styles.newsCardLikes}>
-            <img src={likeIcon} alt="좋아요" />
-            <span>{item.likes}</span>
+          <div className={styles.newsCardInfo}>
+            <div className={styles.newsCardLikes}>
+              <img src={likeIcon} alt="좋아요" />
+              <span>{item.likes}</span>
+            </div>
+            <p>{item.createdAt}</p>
           </div>
         </div>
       </div>

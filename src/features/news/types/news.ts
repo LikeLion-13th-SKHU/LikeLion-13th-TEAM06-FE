@@ -5,6 +5,7 @@ export type NewsItem = {
   title: string;
   thumbUrl?: string;
   likes: number;
+  createdAt: string;
 };
 
 export type NewsComment = {

@@ -16,9 +16,12 @@ export default function NewsColumnCard({ item }: { item: NewsItem }) {
         </div>
         <div className={styles.newsColumnCardContent}>
           <h3 className={styles.newsColumnCardTitle}>{item.title}</h3>
-          <div className={styles.newsColumnCardLikes}>
-            <img src={likeIcon} alt="좋아요" />
-            <span>{item.likes}</span>
+          <div className={styles.newsColumnCardInfo}>
+            <div className={styles.newsColumnCardLikes}>
+              <img src={likeIcon} alt="좋아요" />
+              <span>{item.likes}</span>
+            </div>
+            <p>{item.createdAt}</p>
           </div>
         </div>
       </div>

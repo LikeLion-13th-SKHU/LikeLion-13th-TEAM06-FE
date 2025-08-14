@@ -9,6 +9,7 @@ export const newsMock: NewsItem[] = [
       '뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다',
     thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
     likes: 10,
+    createdAt: '2025.01.01',
   },
   {
     id: '2',
@@ -16,6 +17,7 @@ export const newsMock: NewsItem[] = [
       '뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 ',
     thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
     likes: 20,
+    createdAt: '2025.01.01',
   },
   {
     id: '3',
@@ -23,6 +25,7 @@ export const newsMock: NewsItem[] = [
       '뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 ',
     thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
     likes: 20,
+    createdAt: '2025.01.01',
   },
 ];
 

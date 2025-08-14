@@ -56,3 +56,18 @@
     letter-spacing: 0.12px;
   }
 }
+
+.newsCardInfo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+
+  p {
+    color: palette('gray-400');
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 160%;
+    letter-spacing: 0.12px;
+  }
+}
