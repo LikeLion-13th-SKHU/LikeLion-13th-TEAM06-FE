@@ -10,6 +10,9 @@ import DetailHelpful from '@/features/news/components/detail/DetailHelpful/Detai
 
 export default function NewsDetail() {
   const { id } = useParams();
+
+  // 추후 삭제 필요
+  console.log(id);
   const { setConfig } = useHeader();
   const toast = useToast();
 
@@ -32,9 +35,11 @@ export default function NewsDetail() {
 
   return (
     <div style={{ padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      {/* unused 없애기 위한 코드 / 추후 삭제 필요 */}
-      <div>{id}</div>
-      <DetailBody title={newsDetailMock.title} htmlContent={newsDetailMock.htmlContent} />
+      <DetailBody
+        title={newsDetailMock.title}
+        htmlContent={newsDetailMock.htmlContent}
+        date={newsDetailMock.date}
+      />
       <DetailHelpful />
     </div>
   );

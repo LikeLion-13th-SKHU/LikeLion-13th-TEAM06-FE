@@ -14,14 +14,6 @@ export default function SummaryCard({ tags, bullets }: SummaryCardProps) {
         <span className={styles.highlight}>AI가 요약한 내용</span>
       </header>
 
-      <div className={styles.tags} role="list">
-        {tags.slice(0, 4).map((t) => (
-          <button key={t} role="listitem" className={styles.tag}>
-            # {t}
-          </button>
-        ))}
-      </div>
-
       <ul className={styles.bullets}>
         {bullets.slice(0, 3).map((b, i) => (
           <li key={i}>
@@ -32,6 +24,13 @@ export default function SummaryCard({ tags, bullets }: SummaryCardProps) {
           </li>
         ))}
       </ul>
+      <div className={styles.tags} role="list">
+        {tags.slice(0, 4).map((t) => (
+          <button key={t} role="listitem" className={styles.tag}>
+            # {t}
+          </button>
+        ))}
+      </div>
     </section>
   );
 }

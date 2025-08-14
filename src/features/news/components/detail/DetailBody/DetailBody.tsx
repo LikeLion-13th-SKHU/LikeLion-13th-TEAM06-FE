@@ -6,12 +6,21 @@ import SummaryCard from '../SummaryCard/SummaryCard';
 interface DetailBodyProps {
   title: string;
   htmlContent: string;
+  date: string;
 }
 
-export default function DetailBody({ title, htmlContent }: DetailBodyProps) {
+export default function DetailBody({ title, htmlContent, date }: DetailBodyProps) {
   return (
     <div className={styles.newsDetailBody}>
-      <h1 className={styles.newsDetailBodyTitle}>{title}</h1>
+      <div className={styles.newsDetailBodyHeader}>
+        <div className={styles.newsDetailBodyCategory}>
+          <button className={styles.newsDetailBodyCategoryButton}>서울</button>
+          <button className={styles.newsDetailBodyCategoryButton}>정책/정부</button>
+        </div>
+        <h1 className={styles.newsDetailBodyTitle}>{title}</h1>
+        <p className={styles.newsDetailBodyDate}>{date}</p>
+      </div>
+
       <SummaryCard
         tags={['정책', '안전', '지자체', '가이드라인']}
         bullets={[
