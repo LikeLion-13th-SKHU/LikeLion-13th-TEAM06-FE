@@ -8,12 +8,12 @@ import { newsDetailMock } from '@/features/news/mocks/newsMock';
 import { useToast } from '@/shared/contexts/ToastContext';
 import DetailHelpful from '@/features/news/components/detail/DetailHelpful/DetailHelpful';
 import DetailRelatedNews from '@/features/news/components/detail/DetailRelatedNews/DetailRelatedNews';
+import CommentsSection from '@/features/news/components/detail/comment/CommentsSection';
+import { commentsMock } from '@/features/news/mocks/commentsMock';
 
 export default function NewsDetail() {
   const { id } = useParams();
 
-  // 추후 삭제 필요
-  console.log(id);
   const { setConfig } = useHeader();
   const toast = useToast();
 
@@ -43,6 +43,7 @@ export default function NewsDetail() {
       />
       <DetailHelpful />
       <DetailRelatedNews />
+      <CommentsSection articleId={id || ''} me={{ id: 'me' }} initial={commentsMock} />
     </div>
   );
 }

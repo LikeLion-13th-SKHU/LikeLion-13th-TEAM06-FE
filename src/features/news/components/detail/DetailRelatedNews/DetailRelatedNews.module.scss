@@ -1,5 +1,7 @@
 // src/features/news/components/detail/DetailRelatedNews/DetailRelatedNews.module.scss
 
+@use '@/shared/styles/_variables.scss' as *;
+
 .detailRelatedNews {
   display: flex;
   flex-direction: column;
