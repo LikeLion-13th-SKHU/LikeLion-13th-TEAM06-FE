@@ -26,7 +26,7 @@ export default function NewsMore({ title, section }: NewsMoreProps) {
 
   return (
     <div style={{ padding: '16px 0' }}>
-      {section === 'hot' || section === 'local' ? (
+      {section === 'hot' || section === 'for-you' ? (
         <NewsRowList items={newsMock} />
       ) : (
         <NewsColumnList items={newsMock} />
