@@ -34,7 +34,7 @@ export default function Button({
 
   return (
     <button className={classes.join(' ')} onClick={onClick} disabled={disabled}>
-      {leftIcon && <span className={styles.leftIcon}>{leftIcon}</span>}
+      {leftIcon && <img className={styles.leftIcon} src={leftIcon as string} alt="leftIcon" />}
       {children}
     </button>
   );
