@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import DetailBody from '@/features/news/components/detail/DetailBody/DetailBody';
 import { newsDetailMock } from '@/features/news/mocks/newsMock';
 import { useToast } from '@/shared/contexts/ToastContext';
+import DetailHelpful from '@/features/news/components/detail/DetailHelpful/DetailHelpful';
 
 export default function NewsDetail() {
   const { id } = useParams();
@@ -30,10 +31,11 @@ export default function NewsDetail() {
   }, [setConfig]);
 
   return (
-    <div style={{ padding: '16px 0' }}>
+    <div style={{ padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '24px' }}>
       {/* unused 없애기 위한 코드 / 추후 삭제 필요 */}
       <div>{id}</div>
       <DetailBody title={newsDetailMock.title} htmlContent={newsDetailMock.htmlContent} />
+      <DetailHelpful />
     </div>
   );
 }
