@@ -5,10 +5,12 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import DetailBody from '@/features/news/components/detail/DetailBody/DetailBody';
 import { newsDetailMock } from '@/features/news/mocks/newsMock';
+import { useToast } from '@/shared/contexts/ToastContext';
 
 export default function NewsDetail() {
   const { id } = useParams();
   const { setConfig } = useHeader();
+  const toast = useToast();
 
   useEffect(() => {
     setConfig({
@@ -20,6 +22,7 @@ export default function NewsDetail() {
           id: 'share',
           onClick: () => {
             navigator.clipboard.writeText(window.location.href);
+            toast.success('링크가 복사되었습니다.');
           },
         },
       ],
