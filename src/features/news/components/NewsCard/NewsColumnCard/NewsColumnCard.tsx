@@ -3,10 +3,13 @@
 import type { NewsItem } from '@/features/news/types/news';
 import styles from './NewsColumnCard.module.scss';
 import likeIcon from '@/assets/svg/like.svg';
+import { useNavigate } from 'react-router-dom';
 
 export default function NewsColumnCard({ item }: { item: NewsItem }) {
+  const navigate = useNavigate();
+
   return (
-    <article role="article" aria-label="뉴스 카드">
+    <article role="article" aria-label="뉴스 카드" onClick={() => navigate(`/news/${item.id}`)}>
       <div className={styles.newsColumnCardRoot}>
         <div className={styles.newsColumnCardThumb}>
           <img src={item.thumbUrl} alt={item.title} />

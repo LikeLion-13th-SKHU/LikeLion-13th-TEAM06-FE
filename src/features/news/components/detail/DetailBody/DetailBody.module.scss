@@ -1,0 +1,23 @@
+// src/features/news/components/detail/DetailBody/DetailBody.module.scss
+@use '@/shared/styles/_variables.scss' as *;
+
+.newsDetailBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.newsDetailBodyTitle {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: palette('gray-700');
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 140%;
+  letter-spacing: 0.2px;
+}

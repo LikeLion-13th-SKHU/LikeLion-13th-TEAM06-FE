@@ -4,9 +4,10 @@ import React from 'react';
 export type HeaderKind =
   | 'main' // 로고 + 우측 액션들
   | 'page' // 뒤로가기 + 타이틀
+  | 'detail' // 뒤로가기 + 타이틀 + 공유
   | 'none';
 
-export type HeaderActionId = 'bookmark' | 'mypage' | 'notification' | 'more';
+export type HeaderActionId = 'bookmark' | 'mypage' | 'notification' | 'more' | 'share';
 
 export type HeaderAction = {
   id: HeaderActionId;

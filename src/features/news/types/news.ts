@@ -6,3 +6,18 @@ export type NewsItem = {
   thumbUrl?: string;
   likes: number;
 };
+
+export type NewsComment = {
+  id: string;
+  content: string;
+  createdAt: string;
+  likes: number;
+};
+
+export type NewsDetail = NewsItem & {
+  summary: string;
+  content: string;
+  createdAt: string;
+  comments: NewsComment[];
+  relatedNews: NewsItem[];
+};
