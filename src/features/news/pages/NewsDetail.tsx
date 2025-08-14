@@ -7,6 +7,7 @@ import DetailBody from '@/features/news/components/detail/DetailBody/DetailBody'
 import { newsDetailMock } from '@/features/news/mocks/newsMock';
 import { useToast } from '@/shared/contexts/ToastContext';
 import DetailHelpful from '@/features/news/components/detail/DetailHelpful/DetailHelpful';
+import DetailRelatedNews from '@/features/news/components/detail/DetailRelatedNews/DetailRelatedNews';
 
 export default function NewsDetail() {
   const { id } = useParams();
@@ -41,6 +42,7 @@ export default function NewsDetail() {
         date={newsDetailMock.date}
       />
       <DetailHelpful />
+      <DetailRelatedNews />
     </div>
   );
 }
