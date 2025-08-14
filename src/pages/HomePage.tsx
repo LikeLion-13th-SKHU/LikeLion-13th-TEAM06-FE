@@ -12,7 +12,6 @@ export default function HomePage() {
       kind: 'main',
       autoHide: true,
       rightActions: [
-        { id: 'bookmark', label: '북마크' },
         { id: 'mypage', label: '마이페이지' },
         { id: 'notification', label: '알림' },
       ],
