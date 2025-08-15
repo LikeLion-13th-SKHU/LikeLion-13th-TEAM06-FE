@@ -1,6 +1,6 @@
 // src/features/news/components/detail/comment/CommentItem.tsx
 
-import styles from './comments.module.scss';
+import styles from './Comments.module.scss';
 
 type CommentItemProps = {
   id: string;

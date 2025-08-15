@@ -1,7 +1,7 @@
 // src/features/news/components/detail/comment/CommentInput.tsx
 
 import { useEffect, useRef, useState } from 'react';
-import styles from './comments.module.scss';
+import styles from './Comments.module.scss';
 
 type CommentInputProps = {
   open: boolean;
