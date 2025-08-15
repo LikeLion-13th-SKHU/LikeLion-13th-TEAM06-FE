@@ -25,4 +25,16 @@ export const eventMock = [
     thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
     dateText: '2021.01.01 ~ 2021.01.01',
   },
+  {
+    id: '5',
+    title: '이벤트 이름이 들어갈 공간입니다.',
+    thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
+    dateText: '2021.01.01 ~ 2021.01.01',
+  },
+  {
+    id: '6',
+    title: '이벤트 이름이 들어갈 공간입니다.',
+    thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
+    dateText: '2021.01.01 ~ 2021.01.01',
+  },
 ];

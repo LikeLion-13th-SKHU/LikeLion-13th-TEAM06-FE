@@ -1,0 +1,7 @@
+// src/features/events/components/EventsList/EventsList.module.scss
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
