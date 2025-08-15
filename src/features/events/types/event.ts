@@ -6,3 +6,7 @@ export type EventItem = {
   thumbUrl?: string;
   dateText?: string;
 };
+
+export type EventDetailItem = EventItem & {
+  area: string;
+};
