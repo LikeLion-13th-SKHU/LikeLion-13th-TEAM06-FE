@@ -1,0 +1,27 @@
+// src/features/events/components/EventsCarouselSection/EventsCarouselSection.module.scss
+
+@use '@/shared/styles/variables.scss' as *;
+
+.scrollerWrap {
+  position: relative;
+}
+
+.scroller {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 150px;
+  gap: 12px;
+
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2px;
+
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 16px;
+
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -5,12 +5,14 @@ import NewsRowList from '@/features/news/components/NewsList/NewsRowList/NewsRow
 import { newsMock } from '@/features/news/mocks/newsMock';
 import styles from './NewsSection.module.scss';
 import { Link } from 'react-router-dom';
+import EventsCarouselSection from '@/features/events/components/EventsCarouselSection/EventsCarouselSection';
+import { eventMock } from '@/features/events/mocks/eventMock';
 
 interface NewsSectionProps {
   title: string;
   link: string;
   items?: typeof newsMock;
-  layout?: 'row' | 'column';
+  layout?: 'row' | 'column' | 'events';
 }
 
 export default function NewsSection({
@@ -27,7 +29,13 @@ export default function NewsSection({
           더보기
         </Link>
       </div>
-      {layout === 'row' ? <NewsRowList items={items} /> : <NewsColumnList items={items} />}
+      {layout === 'row' ? (
+        <NewsRowList items={items} />
+      ) : layout === 'column' ? (
+        <NewsColumnList items={items} />
+      ) : (
+        <EventsCarouselSection items={eventMock} />
+      )}
     </section>
   );
 }
