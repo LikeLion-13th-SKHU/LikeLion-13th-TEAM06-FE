@@ -23,6 +23,7 @@ export default function HomePage() {
       <NewsSection title="🔥 실시간 HOT ISSUE" link="/news/hot" />
       <NewsSection title="💡 은혜님 맞춤형 소식" link="/news/for-you" />
       <NewsSection title="☘️ 우리 동네 소식" link="/news/local" layout="column" />
+      <NewsSection title="🎨 행사/전시" link="/events" layout="events" />
     </div>
   );
 }
