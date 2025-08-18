@@ -25,3 +25,36 @@ export const deleteNewsComment = async (id: number) => {
   const response = await instance.delete(`/newsComment/${id}`);
   return response.data;
 };
+
+// 뉴스 좋아요순 조회
+export const getNewsLikeList = async (page?: number, size?: number, sort?: string) => {
+  let query = '';
+  if (page) query += `page=${page}`;
+  if (size) query += `&size=${size}`;
+  if (sort) query += `&sort=${sort}`;
+
+  const response = await instance.get(`/news/newslike${query ? `?${query}` : ''}`);
+  return response.data.data;
+};
+
+// 뉴스 지역별 + 관심사별 조회
+export const getNewsLocalList = async (page?: number, size?: number, sort?: string) => {
+  let query = '';
+  if (page) query += `page=${page}`;
+  if (size) query += `&size=${size}`;
+  if (sort) query += `&sort=${sort}`;
+
+  const response = await instance.get(`/news/personalLocation${query ? `?${query}` : ''}`);
+  return response.data.data;
+};
+
+// 뉴스 관심사별 조회
+export const getNewsInterestList = async (page?: number, size?: number, sort?: string) => {
+  let query = '';
+  if (page) query += `page=${page}`;
+  if (size) query += `&size=${size}`;
+  if (sort) query += `&sort=${sort}`;
+
+  const response = await instance.get(`/news/personal${query ? `?${query}` : ''}`);
+  return response.data.data;
+};

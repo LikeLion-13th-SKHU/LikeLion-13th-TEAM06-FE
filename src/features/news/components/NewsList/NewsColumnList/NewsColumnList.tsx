@@ -7,7 +7,7 @@ import styles from './NewsColumnList.module.scss';
 export default function NewsColumnList({ items }: { items: NewsItem[] }) {
   return (
     <ul className={styles.newsColumnList}>
-      {items.map((item) => (
+      {items?.map((item) => (
         <NewsColumnCard key={item.newsId} item={item} />
       ))}
     </ul>
