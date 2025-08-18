@@ -12,7 +12,7 @@ export default function NewsRowCard({ item }: { item: NewsItem }) {
     <article role="article" aria-label="뉴스 카드" onClick={() => navigate(`/news/${item.newsId}`)}>
       <div className={styles.newsCardRoot}>
         <div className={styles.newsCardThumb}>
-          <img src={item.imgUrl} alt={item.title} />
+          <img src={item.imgUrl || 'https://i.redd.it/m06ssnmxbg2e1.png'} alt={item.title} />
         </div>
         <div className={styles.newsCardContent}>
           <h3 className={styles.newsCardTitle}>{item.title}</h3>

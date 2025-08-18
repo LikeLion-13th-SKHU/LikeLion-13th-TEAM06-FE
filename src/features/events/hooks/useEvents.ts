@@ -1,13 +1,15 @@
 // src/features/events/hooks/useEvents.ts
 
-import { useQuery } from '@tanstack/react-query';
 import { getEvents } from '../api/events.api';
-import { qk } from '@/shared/query/keys';
+import { useOffsetInfinite } from '@/shared/hooks/useInfinityQuery';
 
-export function useEvents(page?: number, size?: number, sort?: string) {
-  return useQuery({
-    queryKey: qk.events(page, size, sort),
-    queryFn: () => getEvents(page, size, sort),
+export function useEventsInfinite(size?: number) {
+  return useOffsetInfinite({
+    queryKey: ['events'],
+    fetchPage: ({ page, size }) => getEvents(page, size),
+    size: size || 20,
+    startPage: 0,
     staleTime: 60_000,
+    params: {},
   });
 }

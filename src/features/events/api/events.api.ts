@@ -8,7 +8,6 @@ export const getEvents = async (page?: number, size?: number, sort?: string) => 
   if (page) query += `page=${page}`;
   if (size) query += `&size=${size}`;
   if (sort) query += `&sort=${sort}`;
-
-  const response = await instance.get(`/art/all${query ? `?${query}` : ''}`);
+  const response = await instance.get(`/art${query ? `?${query}` : ''}`);
   return response.data.data;
 };

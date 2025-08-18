@@ -5,7 +5,7 @@ import styles from './EventsCarouselSection.module.scss';
 import EventCardHorizontal from '../EventCardHorizontal/EventCardHorizontal';
 import { type EventItem } from '../../types/event';
 
-export default function EventsCarouselSection({ items }: { items: EventItem[] }) {
+export default function EventsCarouselSection({ items }: { items: EventItem[] | undefined }) {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
 
   return (

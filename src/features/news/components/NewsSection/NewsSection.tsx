@@ -6,7 +6,7 @@ import styles from './NewsSection.module.scss';
 import { Link } from 'react-router-dom';
 import EventsCarouselSection from '@/features/events/components/EventsCarouselSection/EventsCarouselSection';
 import { useNewsInterestList, useNewsLikeList, useNewsLocalList } from '../../hooks/useNews';
-import { useEvents } from '@/features/events/hooks/useEvents';
+import { useEventsInfinite } from '@/features/events/hooks/useEvents';
 
 interface NewsSectionProps {
   title: string;
@@ -16,14 +16,14 @@ interface NewsSectionProps {
 }
 
 export default function NewsSection({ title, link, layout = 'row', type }: NewsSectionProps) {
-  const { data: { content: items } = {} } =
+  const { data } =
     type === 'hot'
-      ? useNewsLikeList(1, 3)
+      ? useNewsLikeList(0, 3)
       : type === 'for-you'
-        ? useNewsInterestList(1, 3)
+        ? useNewsInterestList(0, 3)
         : type === 'local'
-          ? useNewsLocalList(1, 3)
-          : useEvents(1, 8);
+          ? useNewsLocalList(0, 3)
+          : useEventsInfinite(8);
 
   return (
     <section className={styles.newsSection}>
@@ -34,11 +34,11 @@ export default function NewsSection({ title, link, layout = 'row', type }: NewsS
         </Link>
       </div>
       {layout === 'row' ? (
-        <NewsRowList items={items} />
+        <NewsRowList items={data?.content} />
       ) : layout === 'column' ? (
-        <NewsColumnList items={items} />
+        <NewsColumnList items={data?.content} />
       ) : (
-        <EventsCarouselSection items={items} />
+        <EventsCarouselSection items={data?.pages?.[0]?.content} />
       )}
     </section>
   );

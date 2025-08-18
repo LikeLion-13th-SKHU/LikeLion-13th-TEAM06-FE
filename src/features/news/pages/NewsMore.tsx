@@ -2,9 +2,9 @@
 
 import { useHeader } from '@/shared/contexts/HeaderContext';
 import { useEffect } from 'react';
-import { newsMock } from '@/features/news/mocks/newsMock';
 import NewsRowList from '@/features/news/components/NewsList/NewsRowList/NewsRowList';
 import NewsColumnList from '@/features/news/components/NewsList/NewsColumnList/NewsColumnList';
+import { useNewsInterestList, useNewsLikeList, useNewsLocalList } from '../hooks/useNews';
 
 type Section = 'hot' | 'for-you' | 'local';
 
@@ -24,12 +24,20 @@ export default function NewsMore({ title, section }: NewsMoreProps) {
     });
   }, [setConfig, title]);
 
+  const { data } =
+    section === 'hot'
+      ? useNewsLikeList(1, 10)
+      : section === 'for-you'
+        ? useNewsInterestList(1, 10)
+        : section === 'local'
+          ? useNewsLocalList(1, 10)
+          : { data: { content: [] } };
   return (
     <div style={{ padding: '16px 0' }}>
       {section === 'hot' || section === 'for-you' ? (
-        <NewsRowList items={newsMock} />
+        <NewsRowList items={data?.content} />
       ) : (
-        <NewsColumnList items={newsMock} />
+        <NewsColumnList items={data?.content} />
       )}
     </div>
   );
