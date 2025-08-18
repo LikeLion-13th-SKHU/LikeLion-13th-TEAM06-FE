@@ -9,19 +9,19 @@ export default function NewsRowCard({ item }: { item: NewsItem }) {
   const navigate = useNavigate();
 
   return (
-    <article role="article" aria-label="뉴스 카드" onClick={() => navigate(`/news/${item.id}`)}>
+    <article role="article" aria-label="뉴스 카드" onClick={() => navigate(`/news/${item.newsId}`)}>
       <div className={styles.newsCardRoot}>
         <div className={styles.newsCardThumb}>
-          <img src={item.thumbUrl} alt={item.title} />
+          <img src={item.imgUrl || 'https://i.redd.it/m06ssnmxbg2e1.png'} alt={item.title} />
         </div>
         <div className={styles.newsCardContent}>
           <h3 className={styles.newsCardTitle}>{item.title}</h3>
           <div className={styles.newsCardInfo}>
             <div className={styles.newsCardLikes}>
               <img src={likeIcon} alt="좋아요" />
-              <span>{item.likes}</span>
+              <span>{item.likeCount}</span>
             </div>
-            <p>{item.createdAt}</p>
+            <p>{item.newsDate}</p>
           </div>
         </div>
       </div>

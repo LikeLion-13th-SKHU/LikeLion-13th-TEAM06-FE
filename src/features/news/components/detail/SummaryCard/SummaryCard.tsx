@@ -15,14 +15,15 @@ export default function SummaryCard({ tags, bullets }: SummaryCardProps) {
       </header>
 
       <ul className={styles.bullets}>
-        {bullets.slice(0, 3).map((b, i) => (
-          <li key={i}>
-            <span className={styles.dot} aria-hidden>
-              •
-            </span>
-            <span className={styles.text}>{b}</span>
-          </li>
-        ))}
+        {Array.isArray(bullets) &&
+          bullets.map((b, index) => (
+            <li key={index}>
+              <span className={styles.dot} aria-hidden="true">
+                •
+              </span>
+              <span className={styles.text}>{b}</span>
+            </li>
+          ))}
       </ul>
       <div className={styles.tags} role="list">
         {tags.slice(0, 4).map((t) => (

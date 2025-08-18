@@ -2,25 +2,31 @@
 
 import NewsColumnList from '@/features/news/components/NewsList/NewsColumnList/NewsColumnList';
 import NewsRowList from '@/features/news/components/NewsList/NewsRowList/NewsRowList';
-import { newsMock } from '@/features/news/mocks/newsMock';
 import styles from './NewsSection.module.scss';
 import { Link } from 'react-router-dom';
 import EventsCarouselSection from '@/features/events/components/EventsCarouselSection/EventsCarouselSection';
-import { eventMock } from '@/features/events/mocks/eventMock';
+import { useNewsInterestList, useNewsLikeList, useNewsLocalList } from '../../hooks/useNews';
+import { useEventsInfinite } from '@/features/events/hooks/useEvents';
+import type { NewsItem } from '../../types/news';
+import type { EventItem } from '@/features/events/types/event';
 
 interface NewsSectionProps {
   title: string;
   link: string;
-  items?: typeof newsMock;
   layout?: 'row' | 'column' | 'events';
+  type: 'hot' | 'for-you' | 'local' | 'events';
 }
 
-export default function NewsSection({
-  title,
-  link,
-  items = newsMock,
-  layout = 'row',
-}: NewsSectionProps) {
+export default function NewsSection({ title, link, layout = 'row', type }: NewsSectionProps) {
+  const { data } =
+    type === 'hot'
+      ? useNewsLikeList(0, 3)
+      : type === 'for-you'
+        ? useNewsInterestList(0, 3)
+        : type === 'local'
+          ? useNewsLocalList(0, 3)
+          : useEventsInfinite(8);
+
   return (
     <section className={styles.newsSection}>
       <div className={styles.newsSectionHeader}>
@@ -30,11 +36,23 @@ export default function NewsSection({
         </Link>
       </div>
       {layout === 'row' ? (
-        <NewsRowList items={items} />
+        <NewsRowList
+          data={data as { pages: { content: NewsItem[] }[] } | undefined}
+          hasNextPage={false}
+          isFetchingNextPage={false}
+          fetchNextPage={() => {}}
+          infinite={false}
+        />
       ) : layout === 'column' ? (
-        <NewsColumnList items={items} />
+        <NewsColumnList
+          data={data as { pages: { content: NewsItem[] }[] } | undefined}
+          hasNextPage={false}
+          isFetchingNextPage={false}
+          fetchNextPage={() => {}}
+          infinite={false}
+        />
       ) : (
-        <EventsCarouselSection items={eventMock} />
+        <EventsCarouselSection items={data?.pages?.[0]?.content as EventItem[] | undefined} />
       )}
     </section>
   );

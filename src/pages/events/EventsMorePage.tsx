@@ -4,7 +4,7 @@ import EventsList from '@/features/events/components/EventsList/EventsList';
 import { useHeader } from '@/shared/contexts/HeaderContext';
 import { useEffect } from 'react';
 
-export default function EventsMore() {
+export default function EventsMorePage() {
   const { setConfig } = useHeader();
 
   useEffect(() => {

@@ -1,24 +1,24 @@
 // src/features/news/types/news.ts
 
 export type NewsItem = {
-  id: string;
+  newsId: number;
   title: string;
-  thumbUrl?: string;
-  likes: number;
-  createdAt: string;
+  newsDate: string;
+  imgUrl?: string;
+  likeCount: number;
 };
 
 export type NewsComment = {
-  id: string;
+  newsCommentId: number;
+  memberName: string;
   content: string;
-  createdAt: string;
-  likes: number;
+  memberImageUrl: string;
 };
 
 export type NewsDetail = NewsItem & {
-  summary: string;
+  liked: boolean;
   content: string;
-  createdAt: string;
   comments: NewsComment[];
   relatedNews: NewsItem[];
+  summary: string;
 };

@@ -29,7 +29,8 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  height: 60px;
+  justify-content: space-between;
 }
 
 .title {
