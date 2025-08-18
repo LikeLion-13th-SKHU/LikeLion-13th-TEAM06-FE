@@ -9,5 +9,5 @@ export const qk = {
     ['news', 'local', page, size, sort] as const,
   newsInterestList: (page?: number, size?: number, sort?: string) =>
     ['news', 'interest', page, size, sort] as const,
-  events: (params?: object) => ['events', params] as const,
+  events: (page?: number, size?: number, sort?: string) => ['events', page, size, sort] as const,
 };

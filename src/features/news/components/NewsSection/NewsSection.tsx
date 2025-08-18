@@ -5,8 +5,8 @@ import NewsRowList from '@/features/news/components/NewsList/NewsRowList/NewsRow
 import styles from './NewsSection.module.scss';
 import { Link } from 'react-router-dom';
 import EventsCarouselSection from '@/features/events/components/EventsCarouselSection/EventsCarouselSection';
-import { eventMock } from '@/features/events/mocks/eventMock';
 import { useNewsInterestList, useNewsLikeList, useNewsLocalList } from '../../hooks/useNews';
+import { useEvents } from '@/features/events/hooks/useEvents';
 
 interface NewsSectionProps {
   title: string;
@@ -21,7 +21,9 @@ export default function NewsSection({ title, link, layout = 'row', type }: NewsS
       ? useNewsLikeList(1, 3)
       : type === 'for-you'
         ? useNewsInterestList(1, 3)
-        : useNewsLocalList(1, 3);
+        : type === 'local'
+          ? useNewsLocalList(1, 3)
+          : useEvents(1, 8);
 
   return (
     <section className={styles.newsSection}>
@@ -36,7 +38,7 @@ export default function NewsSection({ title, link, layout = 'row', type }: NewsS
       ) : layout === 'column' ? (
         <NewsColumnList items={items} />
       ) : (
-        <EventsCarouselSection items={eventMock} />
+        <EventsCarouselSection items={items} />
       )}
     </section>
   );

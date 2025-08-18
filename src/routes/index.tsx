@@ -5,7 +5,7 @@ import NewsMoreHotPage from '@/pages/news/NewsMoreHotPage';
 import NewsMoreForYouPage from '@/pages/news/NewsMoreForYouPage';
 import NewsMoreLocalPage from '@/pages/news/NewsMoreLocalPage';
 import NewsDetailPage from '@/pages/news/NewsDetailPage';
-import EventsMore from '@/pages/events/EventsMore';
+import EventsMore from '@/pages/events/EventsMorePage';
 
 export default function AppRoutes() {
   return (

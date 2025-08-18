@@ -1,10 +1,15 @@
 // src/features/events/types/event.ts
 
 export type EventItem = {
-  id: string;
+  artId: number;
   title: string;
-  thumbUrl?: string;
-  dateText?: string;
+  startDate: string;
+  endDate: string;
+  area: string;
+  location: string;
+  imageUrl: string;
+  likeCount: number;
+  liked: boolean;
 };
 
 export type EventDetailItem = EventItem & {
