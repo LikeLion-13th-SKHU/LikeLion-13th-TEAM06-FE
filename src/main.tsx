@@ -7,15 +7,21 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import { HeaderProvider } from './shared/contexts/HeaderContext';
 import { ToastProvider } from './shared/contexts/ToastContext';
+import { queryClient } from '@/shared/query/client';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <HeaderProvider>
-        <ToastProvider>
-          <App />
-        </ToastProvider>
-      </HeaderProvider>
+      <QueryClientProvider client={queryClient}>
+        <HeaderProvider>
+          <ToastProvider>
+            <App />
+            <ReactQueryDevtools initialIsOpen={false} />
+          </ToastProvider>
+        </HeaderProvider>
+      </QueryClientProvider>
     </BrowserRouter>
   </StrictMode>
 );
