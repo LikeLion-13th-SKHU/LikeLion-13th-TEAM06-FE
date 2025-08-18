@@ -4,12 +4,12 @@ import { useHeader } from '@/shared/contexts/HeaderContext';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import DetailBody from '@/features/news/components/detail/DetailBody/DetailBody';
-import { newsDetailMock } from '@/features/news/mocks/newsMock';
 import { useToast } from '@/shared/contexts/ToastContext';
 import DetailHelpful from '@/features/news/components/detail/DetailHelpful/DetailHelpful';
 import DetailRelatedNews from '@/features/news/components/detail/DetailRelatedNews/DetailRelatedNews';
 import CommentsSection from '@/features/news/components/detail/comment/CommentsSection';
 import { commentsMock } from '@/features/news/mocks/commentsMock';
+import { useNewsDetail } from '../hooks/useNews';
 
 export default function NewsDetail() {
   const { id } = useParams();
@@ -34,12 +34,15 @@ export default function NewsDetail() {
     });
   }, [setConfig]);
 
+  const { data: newsDetail } = useNewsDetail(Number(id));
+
   return (
     <div style={{ padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <DetailBody
-        title={newsDetailMock.title}
-        htmlContent={newsDetailMock.htmlContent}
-        date={newsDetailMock.date}
+        title={newsDetail?.title || ''}
+        htmlContent={newsDetail?.content || ''}
+        date={newsDetail?.newsDate || ''}
+        summary={newsDetail?.summary || ''}
       />
       <DetailHelpful />
       <DetailRelatedNews />

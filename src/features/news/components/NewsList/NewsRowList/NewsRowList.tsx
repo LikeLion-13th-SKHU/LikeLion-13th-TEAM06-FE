@@ -8,7 +8,7 @@ export default function NewsRowList({ items }: { items: NewsItem[] }) {
   return (
     <ul className={styles.newsRowList}>
       {items.map((item) => (
-        <NewsRowCard key={item.id} item={item} />
+        <NewsRowCard key={item.newsId} item={item} />
       ))}
     </ul>
   );

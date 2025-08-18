@@ -8,7 +8,7 @@ export default function NewsColumnList({ items }: { items: NewsItem[] }) {
   return (
     <ul className={styles.newsColumnList}>
       {items.map((item) => (
-        <NewsColumnCard key={item.id} item={item} />
+        <NewsColumnCard key={item.newsId} item={item} />
       ))}
     </ul>
   );

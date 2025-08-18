@@ -4,28 +4,28 @@ import type { NewsItem } from '@/features/news/types/news';
 
 export const newsMock: NewsItem[] = [
   {
-    id: '1',
+    newsId: 1,
     title:
       '뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다',
-    thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
-    likes: 10,
-    createdAt: '2025.01.01',
+    imgUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
+    likeCount: 10,
+    newsDate: '2025.01.01',
   },
   {
-    id: '2',
+    newsId: 2,
     title:
       '뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 ',
-    thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
-    likes: 20,
-    createdAt: '2025.01.01',
+    imgUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
+    likeCount: 20,
+    newsDate: '2025.01.01',
   },
   {
-    id: '3',
+    newsId: 3,
     title:
       '뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 뉴스 제목이 들어갈 공간입니다 ',
-    thumbUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
-    likes: 20,
-    createdAt: '2025.01.01',
+    imgUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
+    likeCount: 20,
+    newsDate: '2025.01.01',
   },
 ];
 

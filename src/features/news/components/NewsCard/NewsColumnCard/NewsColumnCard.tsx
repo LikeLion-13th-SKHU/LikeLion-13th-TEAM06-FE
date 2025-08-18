@@ -9,19 +9,19 @@ export default function NewsColumnCard({ item }: { item: NewsItem }) {
   const navigate = useNavigate();
 
   return (
-    <article role="article" aria-label="뉴스 카드" onClick={() => navigate(`/news/${item.id}`)}>
+    <article role="article" aria-label="뉴스 카드" onClick={() => navigate(`/news/${item.newsId}`)}>
       <div className={styles.newsColumnCardRoot}>
         <div className={styles.newsColumnCardThumb}>
-          <img src={item.thumbUrl} alt={item.title} />
+          <img src={item.imgUrl} alt={item.title} />
         </div>
         <div className={styles.newsColumnCardContent}>
           <h3 className={styles.newsColumnCardTitle}>{item.title}</h3>
           <div className={styles.newsColumnCardInfo}>
             <div className={styles.newsColumnCardLikes}>
               <img src={likeIcon} alt="좋아요" />
-              <span>{item.likes}</span>
+              <span>{item.likeCount}</span>
             </div>
-            <p>{item.createdAt}</p>
+            <p>{item.newsDate}</p>
           </div>
         </div>
       </div>
