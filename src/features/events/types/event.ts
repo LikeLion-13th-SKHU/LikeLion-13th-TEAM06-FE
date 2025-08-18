@@ -11,7 +11,3 @@ export type EventItem = {
   likeCount: number;
   liked: boolean;
 };
-
-export type EventDetailItem = EventItem & {
-  area: string;
-};

@@ -8,7 +8,7 @@ export default function EventsList() {
   return (
     <div className={styles.list}>
       {eventMock.map((event) => (
-        <EventCardVertical key={event.id} item={event} />
+        <EventCardVertical key={event.artId} item={event} />
       ))}
     </div>
   );
