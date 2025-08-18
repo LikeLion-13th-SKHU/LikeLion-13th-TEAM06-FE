@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import EventsCarouselSection from '@/features/events/components/EventsCarouselSection/EventsCarouselSection';
 import { useNewsInterestList, useNewsLikeList, useNewsLocalList } from '../../hooks/useNews';
 import { useEventsInfinite } from '@/features/events/hooks/useEvents';
+import type { NewsItem } from '../../types/news';
+import type { EventItem } from '@/features/events/types/event';
 
 interface NewsSectionProps {
   title: string;
@@ -34,11 +36,23 @@ export default function NewsSection({ title, link, layout = 'row', type }: NewsS
         </Link>
       </div>
       {layout === 'row' ? (
-        <NewsRowList items={data?.content} />
+        <NewsRowList
+          data={data as { pages: { content: NewsItem[] }[] } | undefined}
+          hasNextPage={false}
+          isFetchingNextPage={false}
+          fetchNextPage={() => {}}
+          infinite={false}
+        />
       ) : layout === 'column' ? (
-        <NewsColumnList items={data?.content} />
+        <NewsColumnList
+          data={data as { pages: { content: NewsItem[] }[] } | undefined}
+          hasNextPage={false}
+          isFetchingNextPage={false}
+          fetchNextPage={() => {}}
+          infinite={false}
+        />
       ) : (
-        <EventsCarouselSection items={data?.pages?.[0]?.content} />
+        <EventsCarouselSection items={data?.pages?.[0]?.content as EventItem[] | undefined} />
       )}
     </section>
   );
