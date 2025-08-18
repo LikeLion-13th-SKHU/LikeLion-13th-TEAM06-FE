@@ -8,7 +8,6 @@ import { useToast } from '@/shared/contexts/ToastContext';
 import DetailHelpful from '@/features/news/components/detail/DetailHelpful/DetailHelpful';
 import DetailRelatedNews from '@/features/news/components/detail/DetailRelatedNews/DetailRelatedNews';
 import CommentsSection from '@/features/news/components/detail/comment/CommentsSection';
-import { commentsMock } from '@/features/news/mocks/commentsMock';
 import { useNewsDetail } from '../hooks/useNews';
 
 export default function NewsDetail() {
@@ -35,7 +34,6 @@ export default function NewsDetail() {
   }, [setConfig]);
 
   const { data: newsDetail } = useNewsDetail(Number(id));
-
   return (
     <div style={{ padding: '16px 0', display: 'flex', flexDirection: 'column', gap: '24px' }}>
       <DetailBody
@@ -46,7 +44,7 @@ export default function NewsDetail() {
       />
       <DetailHelpful />
       <DetailRelatedNews />
-      <CommentsSection articleId={id || ''} me={{ id: 'me' }} initial={commentsMock} />
+      <CommentsSection articleId={Number(id)} initial={newsDetail?.newsComment ?? []} />
     </div>
   );
 }

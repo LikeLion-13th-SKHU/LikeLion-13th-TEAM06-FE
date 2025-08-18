@@ -1,10 +1,8 @@
 // src/features/news/types/comment.ts
 
 export type Comment = {
-  id: string;
-  nickname: string;
-  avatarUrl?: string;
+  newsCommentId: number;
+  memberName: string;
   content: string;
-  userId: string;
-  createdAt: string;
+  memberImageUrl: string;
 };

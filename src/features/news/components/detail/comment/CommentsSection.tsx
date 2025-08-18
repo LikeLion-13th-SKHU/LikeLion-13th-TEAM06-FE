@@ -1,19 +1,18 @@
 // src/features/news/components/detail/comment/CommentsSection.tsx
 
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Comments.module.scss';
 import CommentItem from './CommentItem';
 import CommentInput from './CommentInput';
 import type { Comment } from '@/features/news/types/comment';
 import Button from '@/shared/components/Button/Button';
+import { useNewsCommentCreate } from '@/features/news/hooks/useNews';
 
-type CommentsSectionProps = {
-  articleId: string;
-  me: { id: string };
-  initial: Comment[];
-};
-export default function CommentsSection({ ...props }: CommentsSectionProps) {
-  const [items, setItems] = useState<Comment[]>(props.initial ?? []);
+interface CommentsSectionProps {
+  articleId: number;
+  initial?: Comment[];
+}
+export default function CommentsSection({ articleId, initial }: CommentsSectionProps) {
   const [isComposerOpen, setIsComposerOpen] = useState(false);
 
   useEffect(() => {
@@ -24,25 +23,12 @@ export default function CommentsSection({ ...props }: CommentsSectionProps) {
     };
   }, [isComposerOpen]);
 
-  const handleSubmit = useCallback(
-    async (text: string) => {
-      await Promise.resolve({
-        id: 'tmp_' + Math.random().toString(36).slice(2),
-        nickname: '으네',
-        userId: props.me?.id || 'me',
-        content: text,
-        createdAt: new Date().toISOString(),
-      }).then((created: Comment) => {
-        if (created) setItems((prev) => [created, ...prev]);
-      });
-    },
-    [props]
-  );
+  const { mutate: createComment } = useNewsCommentCreate(articleId);
 
   return (
     <section className={styles.root} aria-label="댓글">
       <div className={styles.header}>
-        <h3>댓글 {items.length ? `(${items.length})` : ''}</h3>
+        <h3>댓글 {initial?.length ? `(${initial.length})` : ''}</h3>
         <Button
           variant="outline"
           size="sm"
@@ -54,17 +40,16 @@ export default function CommentsSection({ ...props }: CommentsSectionProps) {
       </div>
 
       <div className={styles.list}>
-        {items.map((c) => (
+        {initial?.map((c) => (
           <CommentItem
-            key={c.id}
-            id={c.id}
-            nickname={c.nickname}
+            key={c.newsCommentId}
+            id={c.newsCommentId}
+            memberName={c.memberName}
+            memberImageUrl={c.memberImageUrl}
             content={c.content}
-            isMine={c.userId === props.me?.id}
-            createdAt={c.createdAt}
           />
         ))}
-        {items.length === 0 && (
+        {initial?.length === 0 && (
           <p style={{ color: '#9CA3AF', fontSize: 14 }}>첫 댓글을 남겨보세요!</p>
         )}
       </div>
@@ -72,7 +57,7 @@ export default function CommentsSection({ ...props }: CommentsSectionProps) {
       <CommentInput
         open={isComposerOpen}
         onClose={() => setIsComposerOpen(false)}
-        onSubmit={handleSubmit}
+        onSubmit={createComment}
       />
     </section>
   );
