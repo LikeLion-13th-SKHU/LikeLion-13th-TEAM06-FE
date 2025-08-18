@@ -8,12 +8,14 @@
 }
 
 .eventCardThumb {
+  flex: 0 0 120px;
   width: 120px;
   height: 150px;
   border-radius: 12px;
   overflow: hidden;
 
   img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -21,7 +23,8 @@
 }
 
 .content {
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .title {
@@ -32,12 +35,9 @@
   font-weight: 600;
   line-height: 140%;
   letter-spacing: 0.14px;
-  white-space: nowrap;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   display: -webkit-box;
-
-  width: 100%;
 }
 
 .area {
