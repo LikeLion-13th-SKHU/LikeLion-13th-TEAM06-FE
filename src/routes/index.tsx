@@ -6,11 +6,13 @@ import NewsMoreForYouPage from '@/pages/news/NewsMoreForYouPage';
 import NewsMoreLocalPage from '@/pages/news/NewsMoreLocalPage';
 import NewsDetailPage from '@/pages/news/NewsDetailPage';
 import EventsMore from '@/pages/events/EventsMorePage';
+import LoginPage from '@/pages/login/LoginPage';
 
 export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<LoginPage />} />
       <Route path="/news/hot" element={<NewsMoreHotPage />} />
       <Route path="/news/for-you" element={<NewsMoreForYouPage />} />
       <Route path="/news/local" element={<NewsMoreLocalPage />} />
