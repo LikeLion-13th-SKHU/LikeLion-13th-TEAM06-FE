@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useHeader } from '@/shared/contexts/HeaderContext';
-import Header from '@/shared/components/header/Header';
+import Header from '@/shared/components/Header/Header';
 import { useScrollToTop } from '@/shared/hooks/useScrollOnTop';
 
 export default function AppFrame({ children }: React.PropsWithChildren) {

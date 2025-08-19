@@ -1,4 +1,4 @@
-// src/shared/components/header/Header.tsx
+// src/shared/components/Header/Header.tsx
 
 import type { HeaderConfig } from '@/shared/contexts/HeaderContext';
 import { useHideOnScroll } from '@/shared/hooks/useHideOnScroll';
