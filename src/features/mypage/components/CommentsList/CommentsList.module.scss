@@ -1,0 +1,9 @@
+// src/features/mypage/components/CommentsList/CommentsList.module.scss
+
+@use '@/shared/styles/variables.scss' as *;
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
