@@ -1,0 +1,188 @@
+/* ===============================
+   OnBoardingPage.module.scss — FULL
+   =============================== */
+
+/* 헤더(56px) 높이 반영 */
+.page {
+  min-height: calc(100dvh - 56px);
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* progress + body + footer */
+  padding: 16px;
+  box-sizing: border-box;
+  background: #fff;
+  color: #111;
+}
+
+/* ---------- 상단 진행바 ---------- */
+.progress {
+  display: flex;
+  gap: 12px;
+  padding: 8px 8px 0;
+  align-items: center;
+}
+.dot {
+  flex: 1 1 0;
+  height: 10px;
+  border-radius: 999px;
+  background: #f5f4e9; /* 연한 노랑 */
+}
+.dotActive {
+  background: #ffd84d; /* 강조 노랑 */
+}
+
+/* ---------- 뒤로가기 버튼 ---------- */
+.backBtn {
+  position: absolute;
+  top: 72px; /* 진행바 아래 보이도록 */
+  left: 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 8px;
+  line-height: 1;
+}
+.backBtn:focus-visible {
+  outline: 3px solid rgba(255, 216, 77, .4);
+  border-radius: 8px;
+}
+.backIcon {
+  font-size: 20px;
+  color: #111;
+}
+
+/* ---------- 본문 영역 ---------- */
+.body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 28px;
+  padding-left: 28px; /* 왼쪽 세로 바 공간 */
+}
+
+/* 왼쪽 세로 바 */
+.bar {
+  width: 4px;
+  height: 56px;
+  border-radius: 4px;
+  background: #333;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+/* 타이틀/서브타이틀 */
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #111;
+}
+.subtitle {
+  font-size: 14px;
+  color: #777;
+}
+
+/* ---------- 폼 ---------- */
+.form {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 280px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rowCompact {
+  gap: 12px;
+}
+.unit {
+  font-size: 14px;
+  color: #111;
+}
+
+/* 인풋/셀렉트 공통 */
+.input {
+  min-width: 120px;
+  height: 44px;
+  border-radius: 10px;
+  border: 2px solid #d9d9d9;
+  background: #fff;
+  padding: 0 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+  outline: none;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.input::placeholder {
+  color: #bbb;
+  font-weight: 500;
+}
+.input:focus {
+  border-color: #111;
+  box-shadow: 0 0 0 3px rgba(255, 216, 77, .25);
+}
+
+/* 네이티브 셀렉트에 화살표(커스텀) */
+select {
+  border: 1px solid #ccc;   /* 원하는 테두리 */
+  border-radius: 8px;
+  padding: 8px 12px;
+
+  /* 크롬에서 생기는 기본 화살표 뒤 선 제거 */
+  background: none; 
+  background-color: #fff;   /* 흰 배경 유지 */
+}
+
+
+/* 숫자 입력에 스핀버튼 제거(브라우저별) */
+input[type="number"] {
+  appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+/* ---------- 하단 CTA ---------- */
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 12px 8px 20px;
+}
+.nextBtn {
+  width: 100%;
+  max-width: 310px;
+  height: 52px;
+  background: #ffd84d;
+  color: #111;
+  font-weight: 800;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(255, 216, 77, .4);
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+.nextBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.nextBtn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ---------- 반응형 보완 ---------- */
+@media (min-width: 420px) {
+  .page { padding-left: 24px; padding-right: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nextBtn { transition: none; }
+}
+

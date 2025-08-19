@@ -7,6 +7,7 @@ import NewsMoreLocalPage from '@/pages/news/NewsMoreLocalPage';
 import NewsDetailPage from '@/pages/news/NewsDetailPage';
 import EventsMore from '@/pages/events/EventsMorePage';
 import LoginPage from '@/pages/login/LoginPage';
+import OnBoardingPage from '@/pages/onboarding/OnBoardingPage';
 
 export default function AppRoutes() {
   return (
@@ -18,6 +19,7 @@ export default function AppRoutes() {
       <Route path="/news/local" element={<NewsMoreLocalPage />} />
       <Route path="/news/:id" element={<NewsDetailPage />} />
       <Route path="/events" element={<EventsMore />} />
+      <Route path='/onboarding' element={<OnBoardingPage />} />
     </Routes>
   );
 }
