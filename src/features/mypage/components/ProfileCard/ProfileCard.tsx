@@ -18,7 +18,7 @@ export default function ProfileCard({ user }: { user: User }) {
       <div className={styles.info}>
         <div className={styles.nameRow}>
           <strong className={styles.name}>{user.nickname}</strong>
-          <button className={styles.editBtn} onClick={() => navigate('/mypage/edit')}>
+          <button className={styles.editBtn} onClick={() => navigate('/mypage/edit-profile')}>
             프로필 편집
           </button>
         </div>
@@ -34,7 +34,7 @@ export default function ProfileCard({ user }: { user: User }) {
                 items={interests}
                 maxVisible={6}
                 onClickMore={() => {
-                  navigate('/mypage/edit');
+                  navigate('/mypage/edit-interests');
                 }}
               />
             ) : (
@@ -43,7 +43,7 @@ export default function ProfileCard({ user }: { user: User }) {
           </div>
         </div>
 
-        <Link to={'/mypage/edit'} className={styles.editLink}>
+        <Link to={'/mypage/edit-interests'} className={styles.editLink}>
           관심사 및 지역 편집하기
         </Link>
       </div>
