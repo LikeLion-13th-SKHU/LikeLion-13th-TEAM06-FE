@@ -90,29 +90,52 @@ $radius-sm: 8px;
   }
 }
 
-.email {
-  color: $muted;
-  font-size: 13px;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
+.lines {
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
 }
 
-.metrics {
-  display: inline-flex;
-  gap: 8px;
-  margin-top: 2px;
+.line {
+  display: grid;
+  grid-template-columns: 64px 1fr; /* label width */
+  align-items: start;
+  gap: 10px;
+}
 
-  span {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    color: $ink;
-    background: #fafafa;
-    border: 1px solid $line;
-    border-radius: $radius-lg;
-    padding: 6px 10px;
+.label {
+  color: $muted;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.value {
+  color: $ink;
+  font-size: 14px;
+  line-height: 1.6;
+  min-width: 0; /* 태그 줄바꿈 안정 */
+}
+
+.placeholder {
+  color: $muted;
+}
+
+/* 하단 편집 링크(작게, a 스타일) */
+.editLink {
+  display: inline-block;
+  margin-top: 10px;
+  color: $ink;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: darken($ink, 8%);
+  }
+  &:active {
+    opacity: 0.9;
   }
 }
 
@@ -128,12 +151,5 @@ $radius-sm: 8px;
   }
   .name {
     font-size: 16px;
-  }
-  .email {
-    font-size: 12px;
-  }
-  .metrics span {
-    font-size: 11px;
-    padding: 5px 8px;
   }
 }

@@ -1,0 +1,48 @@
+// src/features/mypage/components/InterestTags/InterestTags.module.scss
+
+@use '@/shared/styles/variables.scss' as *;
+
+$brand: palette('primary');
+$ink: palette('gray-800');
+$line: palette('gray-200');
+$muted: palette('gray-500');
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  padding: 6px 10px;
+  border: 1px solid $line;
+  border-radius: 999px;
+  background: #fffef7;
+  color: $ink;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.more {
+  @extend .tag;
+  background: transparent;
+  color: $muted;
+  cursor: pointer;
+}
+
+.sm .tag,
+.sm .more {
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+.md .tag,
+.md .more {
+  font-size: 14px;
+  padding: 8px 12px;
+}

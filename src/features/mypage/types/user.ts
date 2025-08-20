@@ -7,4 +7,6 @@ export type User = {
   avatarUrl: string;
   likeCount: number;
   commentCount: number;
+  interests?: string[];
+  region?: string;
 };
