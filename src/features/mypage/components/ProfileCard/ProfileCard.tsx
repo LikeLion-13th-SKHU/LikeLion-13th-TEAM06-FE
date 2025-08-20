@@ -2,8 +2,10 @@
 
 import type { User } from '../../types/user';
 import styles from './ProfileCard.module.scss';
+import { useNavigate } from 'react-router-dom';
 
-export default function ProfileCard({ user, onEdit }: { user: User; onEdit: () => void }) {
+export default function ProfileCard({ user }: { user: User }) {
+  const navigate = useNavigate();
   return (
     <section className={styles.card}>
       <button className={styles.avatarBtn} aria-label="프로필 이미지 변경">
@@ -12,7 +14,7 @@ export default function ProfileCard({ user, onEdit }: { user: User; onEdit: () =
       <div className={styles.info}>
         <div className={styles.nameRow}>
           <strong className={styles.name}>{user.nickname}</strong>
-          <button className={styles.editBtn} onClick={onEdit}>
+          <button className={styles.editBtn} onClick={() => navigate('/mypage/edit')}>
             프로필 편집
           </button>
         </div>

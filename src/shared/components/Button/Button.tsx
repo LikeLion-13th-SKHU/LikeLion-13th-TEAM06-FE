@@ -13,6 +13,7 @@ export default function Button({
   leftIcon,
   stretch = false,
   disabled = false,
+  type = 'button',
   className,
 }: {
   size?: Size;
@@ -23,17 +24,19 @@ export default function Button({
   onClick?: () => void;
   className?: string;
   disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }) {
   const classes = [
     styles.button,
     styles[size],
     styles[variant],
     stretch && styles.stretch,
+    disabled && styles.disabled,
     className,
   ];
 
   return (
-    <button className={classes.join(' ')} onClick={onClick} disabled={disabled}>
+    <button className={classes.join(' ')} onClick={onClick} disabled={disabled} type={type}>
       {leftIcon && <img className={styles.leftIcon} src={leftIcon as string} alt="leftIcon" />}
       {children}
     </button>

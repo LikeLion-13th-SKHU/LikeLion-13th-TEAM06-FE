@@ -1,0 +1,76 @@
+// src/shared/components/TextInputField/TextInputField.module.scss
+
+/* src/shared/components/Form/TextInputField/TextInputField.module.scss */
+@use '@/shared/styles/variables.scss' as *;
+
+$primary: palette('primary');
+$ink: palette('gray-800');
+$muted: palette('gray-500');
+$line: palette('gray-200');
+$error: #ef4444;
+
+.field {
+  display: grid;
+  grid-template-rows: auto auto 2px auto;
+  gap: 6px;
+}
+
+.full {
+  width: 100%;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: $muted;
+}
+
+.input {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  color: $ink;
+  background: transparent;
+  border: 0;
+  padding: 6px 0;
+
+  &::placeholder {
+    color: palette('gray-400');
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.underline {
+  height: 2px;
+  background: $line;
+  transition:
+    background-color 0.18s ease,
+    transform 0.18s ease;
+  transform-origin: left center;
+}
+
+.input:focus + .underline {
+  background: $primary;
+}
+
+.error + .underline {
+  background: $error;
+}
+
+.errorText {
+  color: $error;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.hint {
+  color: $muted;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.disabled {
+  color: palette('gray-400');
+}

@@ -1,0 +1,17 @@
+// src/features/mypage/components/ProfileForm/ProfileForm.module.scss
+
+@use '@/shared/styles/variables.scss' as *;
+
+$form-gap: 16px;
+
+.form {
+  display: grid;
+  gap: $form-gap;
+  padding: 16px;
+}
+
+.footer {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+}

@@ -7,6 +7,7 @@ import NewsMoreLocalPage from '@/pages/news/NewsMoreLocalPage';
 import NewsDetailPage from '@/pages/news/NewsDetailPage';
 import EventsMore from '@/pages/events/EventsMorePage';
 import MyPage from '@/pages/mypage/MyPage';
+import EditProfilePage from '@/pages/mypage/EditProfilePage';
 
 export default function AppRoutes() {
   return (
@@ -18,6 +19,7 @@ export default function AppRoutes() {
       <Route path="/news/:id" element={<NewsDetailPage />} />
       <Route path="/events" element={<EventsMore />} />
       <Route path="/mypage" element={<MyPage />} />
+      <Route path="/mypage/edit" element={<EditProfilePage />} />
     </Routes>
   );
 }

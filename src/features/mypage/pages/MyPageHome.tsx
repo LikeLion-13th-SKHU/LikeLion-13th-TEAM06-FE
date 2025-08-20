@@ -12,7 +12,7 @@ export default function MyPageHome() {
   const tab = (sp.get('tab') === 'comments' ? 'comments' : 'likes') as 'likes' | 'comments';
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <ProfileCard user={userMock} onEdit={() => {}} />
+      <ProfileCard user={userMock} />
       <MyPageTabs
         value={tab}
         onChange={(tab) => {
