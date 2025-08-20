@@ -17,7 +17,7 @@ export default function EditProfilePage() {
   }, [setConfig]);
   return (
     <div style={{ padding: '16px 0' }}>
-      <ProfileForm defaultValues={userMock} onSubmit={() => {}} emailEditable={false} />
+      <ProfileForm defaultValues={userMock} onSubmit={() => {}} />
     </div>
   );
 }

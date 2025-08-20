@@ -10,16 +10,14 @@ import TextInputField from '@/shared/components/TextInputField/TextInputField';
 export default function ProfileForm({
   defaultValues,
   onSubmit,
-  emailEditable = false,
 }: {
   defaultValues: ProfileFormData;
   onSubmit: (data: ProfileFormData) => void;
-  emailEditable?: boolean;
 }) {
   const {
     register,
     handleSubmit,
-    formState: { isValid },
+    formState: { isValid, errors },
   } = useForm({
     defaultValues,
     resolver: zodResolver(profileSchema),
@@ -31,13 +29,14 @@ export default function ProfileForm({
         id="nickname"
         label="닉네임"
         placeholder="닉네임을 입력하세요"
+        error={errors.nickname?.message}
         {...register('nickname')}
       />
       <TextInputField
         id="email"
         label="이메일"
         placeholder="example@domain.com"
-        disabled={!emailEditable}
+        error={errors.email?.message}
         {...register('email')}
       />
       <Button type="submit" variant="solid" stretch disabled={!isValid}>
