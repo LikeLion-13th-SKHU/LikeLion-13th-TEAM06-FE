@@ -6,7 +6,7 @@ import YellowLike from '@/assets/svg/yellowLike.svg';
 import { useNewsLike } from '@/features/news/hooks/useNews';
 import { useEffect, useState } from 'react';
 import { useToast } from '@/shared/contexts/ToastContext';
-import YellowSolidLike from '@/assets/svg/yellowSolidLike.svg';
+import SolidLike from '@/assets/svg/solidLike.svg';
 
 type Props = {
   articleId: number;
@@ -57,7 +57,7 @@ export default function DetailHelpful({ articleId, initiallyHelpful, initiallyCo
       <h3 className={styles.detailHelpfulTitle}>해당 기사가 도움이 되었나요? </h3>
       <Button
         variant={helpful ? 'solid' : 'outline'}
-        leftIcon={helpful ? YellowSolidLike : YellowLike}
+        leftIcon={helpful ? SolidLike : YellowLike}
         onClick={handleClick}
         disabled={isPending}
       >

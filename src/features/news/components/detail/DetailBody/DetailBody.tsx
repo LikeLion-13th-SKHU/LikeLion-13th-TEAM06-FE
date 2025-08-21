@@ -15,7 +15,6 @@ export default function DetailBody({ title, htmlContent, date, summary }: Detail
     <div className={styles.newsDetailBody}>
       <div className={styles.newsDetailBodyHeader}>
         <div className={styles.newsDetailBodyCategory}>
-          <button className={styles.newsDetailBodyCategoryButton}>서울</button>
           <button className={styles.newsDetailBodyCategoryButton}>정책/정부</button>
         </div>
         <h1 className={styles.newsDetailBodyTitle}>{title}</h1>
