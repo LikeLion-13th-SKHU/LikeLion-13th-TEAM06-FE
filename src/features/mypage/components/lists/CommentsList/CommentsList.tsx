@@ -1,13 +1,14 @@
-// src/features/mypage/components/LikesList/LikesList.tsx
+// src/features/mypage/components/CommentsList/CommentsList.tsx
 
 import InfiniteList from '@/shared/components/InfiniteList/InfiniteList';
-import { useMyPageLikesInfinite } from '../../hooks/useMyPage';
-import styles from './LikesList.module.scss';
+
 import type { NewsItem } from '@/features/news/types/news';
 import NewsRowCard from '@/features/news/components/NewsCard/NewsRowCard/NewsRowCard';
+import styles from './CommentsList.module.scss';
+import { useMyPageCommentsInfinite } from '@/features/mypage/hooks/useMyPage';
 
-export default function LikesList() {
-  const { data, hasNextPage, isFetchingNextPage, fetchNextPage } = useMyPageLikesInfinite();
+export default function CommentsList() {
+  const { data, hasNextPage, isFetchingNextPage, fetchNextPage } = useMyPageCommentsInfinite();
   return (
     <div className={styles.list}>
       <InfiniteList

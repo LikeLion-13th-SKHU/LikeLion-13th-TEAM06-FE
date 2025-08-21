@@ -1,7 +1,7 @@
 // src/features/mypage/components/ProfileCard/ProfileCard.tsx
 
 import type { User } from '../../types/user';
-import InterestTagList from '../InterestTagList/InterestTagList';
+import InterestTagList from './InterestTagList/InterestTagList';
 import styles from './ProfileCard.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 

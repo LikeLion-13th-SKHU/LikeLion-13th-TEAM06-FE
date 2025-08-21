@@ -1,6 +1,6 @@
 // src/pages/mypage/EditProfilePage.tsx
 
-import ProfileForm from '@/features/mypage/components/ProfileForm/ProfileForm';
+import ProfileForm from '@/features/mypage/components/forms/ProfileForm/ProfileForm';
 import { userMock } from '@/features/mypage/mocks/userMock';
 import { useHeader } from '@/shared/contexts/HeaderContext';
 import { useEffect } from 'react';

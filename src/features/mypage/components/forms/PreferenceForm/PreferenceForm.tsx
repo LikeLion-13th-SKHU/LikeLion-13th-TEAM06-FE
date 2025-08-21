@@ -3,10 +3,10 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { preferencesSchema, type PreferencesFormData } from '@/shared/validation/preferenceSchema';
 import { INTERESTS, type InterestKey } from '@/shared/constants/interests';
-import InterestChip from '../InterestChip/InterestChip';
+import InterestChip from './InterestChip/InterestChip';
 import Button from '@/shared/components/Button/Button';
 import styles from './PreferenceForm.module.scss';
-import RegionSelector from '../RegionSelector/RegionSelector';
+import RegionSelector from './RegionSelector/RegionSelector';
 
 export default function PreferencesForm({
   defaultValues,

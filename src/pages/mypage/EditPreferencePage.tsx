@@ -2,7 +2,7 @@
 
 import { useHeader } from '@/shared/contexts/HeaderContext';
 import { useEffect } from 'react';
-import PreferenceForm from '@/features/mypage/components/PreferenceForm/PreferenceForm';
+import PreferenceForm from '@/features/mypage/components/forms/PreferenceForm/PreferenceForm';
 
 export default function EditPreferencePage() {
   const { setConfig } = useHeader();

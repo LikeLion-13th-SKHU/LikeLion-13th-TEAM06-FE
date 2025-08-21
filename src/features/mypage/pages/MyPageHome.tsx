@@ -3,8 +3,8 @@
 import { userMock } from '../mocks/userMock';
 import ProfileCard from '../components/ProfileCard/ProfileCard';
 import MyPageTabs from '../components/MyPageTabs/MyPageTabs';
-import LikesList from '../components/LikesList/LikesList';
-import CommentsList from '../components/CommentsList/CommentsList';
+import LikesList from '../components/lists/LikesList/LikesList';
+import CommentsList from '../components/lists/CommentsList/CommentsList';
 import { useSearchParams } from 'react-router-dom';
 
 export default function MyPageHome() {
