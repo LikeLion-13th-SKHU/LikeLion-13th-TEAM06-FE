@@ -7,6 +7,7 @@ import bellIcon from '@/assets/svg/bell.svg';
 import userIcon from '@/assets/svg/user.svg';
 import chevronLeftIcon from '@/assets/svg/chevronLeft.svg';
 import shareIcon from '@/assets/svg/export.svg';
+import logo from '@/assets/svg/dongnering_icon_left.svg';
 
 function ActionIcon({ id, onClick, label }: { id: string; onClick?: () => void; label?: string }) {
   const icon =
@@ -45,7 +46,9 @@ export default function Header({ config }: { config: HeaderConfig }) {
     return (
       <header className={`header-root ${isHidden ? 'is-hidden' : ''}`}>
         <div className="header-inner">
-          <div className="brand">동네링 🔔</div>
+          <div className="brand">
+            <img src={logo} alt="동네링" width="80" height="40" />
+          </div>
           {Right}
         </div>
       </header>
