@@ -1,0 +1,28 @@
+// src/features/mypage/components/InterestTags/InterestTags.module.scss
+
+@use '@/shared/styles/variables.scss' as *;
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  background-color: palette('gray-100');
+  color: palette('gray-700');
+  white-space: nowrap;
+
+  .emoji {
+    font-size: 14px;
+    line-height: 1;
+  }
+}

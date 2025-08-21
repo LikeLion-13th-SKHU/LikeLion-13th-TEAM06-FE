@@ -2,12 +2,38 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+
+    <!-- 기본 파비콘 -->
+    <link rel="icon" type="image/svg+xml" href="/src/assets/svg/favicon.ico" />
+
+    <!-- PNG 파비콘 (다양한 해상도 대응) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/svg/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/svg/favicon-16x16.png" />
+
+    <!-- iOS (홈화면 추가 시 아이콘) -->
+    <link rel="apple-touch-icon" href="/src/assets/svg/apple-touch-icon.png" />
+
+    <!-- Android (PWA, Web App Manifest) -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/src/assets/svg/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/src/assets/svg/android-chrome-512x512.png"
+    />
+
+    <!-- PWA 지원 -->
+    <link rel="manifest" href="/src/assets/manifest/site.webmanifest" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>동네링</title>
+    <title>동네링 | 나만을 위한 로컬 뉴스 요약 플랫폼</title>
   </head>
   <body>
     <div id="root"></div>

@@ -12,7 +12,7 @@ export default function HomePage() {
       kind: 'main',
       autoHide: true,
       rightActions: [
-        { id: 'mypage', label: '마이페이지' },
+        { id: 'mypage', label: '마이페이지', onClick: () => (location.href = '/mypage') },
         { id: 'notification', label: '알림' },
       ],
     });

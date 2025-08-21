@@ -1,0 +1,48 @@
+// src/features/mypage/components/PreferenceForm/PreferenceForm.module.scss
+
+@use '@/shared/styles/variables.scss' as *;
+
+.form {
+  display: grid;
+  gap: 24px;
+  padding: 16px;
+}
+
+.section {
+  display: grid;
+  gap: 12px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.counter {
+  color: palette('gray-500');
+  font-size: 12px;
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.error {
+  color: #ef4444;
+  font-size: 12px;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
+  padding: 12px 0;
+  background: linear-gradient(#fff 60%, rgba(255, 255, 255, 0));
+}

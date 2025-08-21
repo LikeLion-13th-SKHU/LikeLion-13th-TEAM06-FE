@@ -1,0 +1,52 @@
+// src/features/mypage/components/InterestTagList/InterestTagList.module.scss
+
+@use '@/shared/styles/variables.scss' as *;
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.sm {
+  .tag {
+    padding: 2px 8px;
+    font-size: 12px;
+  }
+  .more {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+}
+
+.md {
+  .tag {
+    padding: 4px 12px;
+    font-size: 14px;
+  }
+  .more {
+    font-size: 14px;
+    padding: 4px 12px;
+  }
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background-color: palette('gray-200');
+  color: palette('gray-600');
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: none;
+
+  &:hover {
+    background-color: palette('gray-300');
+  }
+
+  &:active {
+    background-color: palette('gray-400');
+  }
+}

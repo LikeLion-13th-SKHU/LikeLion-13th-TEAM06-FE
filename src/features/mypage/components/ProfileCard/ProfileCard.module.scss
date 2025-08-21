@@ -1,0 +1,155 @@
+// src/features/mypage/components/ProfileCard/ProfileCard.module.scss
+
+@use '@/shared/styles/variables.scss' as *;
+
+$brand: palette('primary');
+$brand-ink: palette('gray-950');
+$bg: palette('white');
+$ink: palette('gray-800');
+$muted: palette('gray-500');
+$line: palette('gray-200');
+
+$avatar-size: 96px;
+$radius-xl: 16px;
+$radius-lg: 12px;
+$radius-sm: 8px;
+
+.card {
+  display: grid;
+  grid-template-columns: $avatar-size 1fr;
+  gap: 16px;
+  padding: 16px;
+  background: $bg;
+  border: 1px solid $line;
+  border-radius: $radius-xl;
+
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+
+.avatarBtn {
+  position: relative;
+  width: $avatar-size;
+  height: $avatar-size;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid $line;
+  background: #f7f7f7;
+  cursor: pointer;
+  padding: 0;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.name {
+  color: $ink;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.editBtn {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid $line;
+  background: #fff;
+  color: $ink;
+
+  &:focus-visible {
+    outline: 2px solid $brand;
+    outline-offset: 2px;
+  }
+}
+
+.lines {
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.line {
+  display: grid;
+  grid-template-columns: 64px 1fr; /* label width */
+  align-items: start;
+  gap: 10px;
+}
+
+.label {
+  color: $muted;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.value {
+  color: $ink;
+  font-size: 14px;
+  line-height: 1.6;
+  min-width: 0; /* 태그 줄바꿈 안정 */
+}
+
+.placeholder {
+  color: $muted;
+}
+
+/* 하단 편집 링크(작게, a 스타일) */
+.editLink {
+  display: inline-block;
+  margin-top: 10px;
+  color: $ink;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover {
+    color: palette('gray-900');
+  }
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 360px) {
+  $avatar-size: 84px;
+
+  .card {
+    grid-template-columns: $avatar-size 1fr;
+  }
+  .avatarBtn {
+    width: $avatar-size;
+    height: $avatar-size;
+  }
+  .name {
+    font-size: 16px;
+  }
+}
