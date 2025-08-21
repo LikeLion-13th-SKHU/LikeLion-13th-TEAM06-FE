@@ -60,9 +60,6 @@ export default function InfiniteList<T>({
       ))}
       {isFetchingNextPage && fetchingMoreFallback}
       <div ref={sentinelRef} style={{ height: 1 }} />
-      {!hasNextPage && (
-        <div style={{ color: '#9CA3AF', textAlign: 'center', padding: 12 }}>마지막 콘텐츠에요</div>
-      )}
     </>
   );
 }

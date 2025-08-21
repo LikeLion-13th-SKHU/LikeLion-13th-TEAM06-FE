@@ -24,7 +24,7 @@ export default function NewsSection({ title, link, layout = 'row', type }: NewsS
       : type === 'for-you'
         ? useNewsInterestList(0, 3)
         : type === 'local'
-          ? useNewsLocalList(0, 3)
+          ? useNewsLocalList(0, 8)
           : useEventsInfinite(8);
 
   return (

@@ -28,7 +28,7 @@ export default function CommentsSection({ articleId, initial }: CommentsSectionP
   return (
     <section className={styles.root} aria-label="댓글">
       <div className={styles.header}>
-        <h3>댓글 {initial?.length ? `(${initial.length})` : ''}</h3>
+        <h3>댓글</h3>
         <Button
           variant="outline"
           size="sm"

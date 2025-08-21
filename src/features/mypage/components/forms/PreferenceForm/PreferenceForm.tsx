@@ -8,7 +8,7 @@ import Button from '@/shared/components/Button/Button';
 import styles from './PreferenceForm.module.scss';
 import RegionSelector from './RegionSelector/RegionSelector';
 
-export default function PreferencesForm({
+export default function PreferenceForm({
   defaultValues,
   onSubmit,
 }: {
@@ -41,7 +41,6 @@ export default function PreferencesForm({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-      {/* 지역 */}
       <section className={styles.section}>
         <h3 className={styles.title}>관심 지역</h3>
         <RegionSelector
