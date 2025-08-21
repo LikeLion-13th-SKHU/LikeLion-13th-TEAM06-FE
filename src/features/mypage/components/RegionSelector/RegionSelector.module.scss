@@ -1,0 +1,51 @@
+// src/features/mypage/components/RegionSelector/RegionSelector.module.scss
+
+@use '@/shared/styles/variables.scss' as *;
+
+$brand: palette('primary');
+$ink: palette('gray-900');
+$muted: palette('gray-500');
+$line: palette('gray-300');
+
+.grid {
+  display: grid;
+  gap: 8px;
+}
+
+.cols3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.cols4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  border-radius: 999px;
+  border: 1px solid $line;
+  background: #fff;
+  color: $ink;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+
+  &:focus-visible {
+    outline: 2px solid $brand;
+    outline-offset: 2px;
+  }
+}
+
+.selected {
+  background: #fff7bf;
+  border-color: palette('primary');
+  color: palette('gray-900');
+}
+
+.error {
+  margin-top: 4px;
+  color: #ef4444;
+  font-size: 12px;
+}

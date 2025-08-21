@@ -132,7 +132,7 @@ $radius-sm: 8px;
   text-underline-offset: 3px;
 
   &:hover {
-    color: darken($ink, 8%);
+    color: palette('gray-900');
   }
   &:active {
     opacity: 0.9;

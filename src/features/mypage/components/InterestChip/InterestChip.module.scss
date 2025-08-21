@@ -1,0 +1,21 @@
+// src/features/mypage/components/InterestChip/InterestChip.module.scss
+
+@use '@/shared/styles/variables.scss' as *;
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid palette('gray-300');
+  background: #fff;
+  color: palette('gray-900');
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.selected {
+  background: #fff7bf;
+  border-color: palette('primary');
+}

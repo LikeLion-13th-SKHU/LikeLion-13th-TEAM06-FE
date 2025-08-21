@@ -1,5 +1,8 @@
 // src/features/mypage/types/user.ts
 
+import type { RegionCode } from '@/shared/constants/region';
+import type { InterestKey } from '@/shared/constants/interests';
+
 export type User = {
   id: number;
   nickname: string;
@@ -7,6 +10,6 @@ export type User = {
   avatarUrl: string;
   likeCount: number;
   commentCount: number;
-  interests?: string[];
-  region?: string;
+  interests?: InterestKey[];
+  region?: RegionCode;
 };

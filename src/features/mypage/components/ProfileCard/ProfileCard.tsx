@@ -1,7 +1,7 @@
 // src/features/mypage/components/ProfileCard/ProfileCard.tsx
 
 import type { User } from '../../types/user';
-import InterestTags from '../InterestTags/InterestTags';
+import InterestTagList from '../InterestTagList/InterestTagList';
 import styles from './ProfileCard.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -30,9 +30,9 @@ export default function ProfileCard({ user }: { user: User }) {
           <span className={styles.label}>관심사</span>
           <div className={styles.value}>
             {interests.length ? (
-              <InterestTags
+              <InterestTagList
                 items={interests}
-                maxVisible={6}
+                maxVisible={4}
                 onClickMore={() => {
                   navigate('/mypage/edit-interests');
                 }}

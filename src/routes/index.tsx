@@ -8,7 +8,7 @@ import NewsDetailPage from '@/pages/news/NewsDetailPage';
 import EventsMore from '@/pages/events/EventsMorePage';
 import MyPage from '@/pages/mypage/MyPage';
 import EditProfilePage from '@/pages/mypage/EditProfilePage';
-import EditInterestPage from '@/pages/mypage/EditInterestPage';
+import EditInterestPage from '@/pages/mypage/EditPreferencePage';
 
 export default function AppRoutes() {
   return (
