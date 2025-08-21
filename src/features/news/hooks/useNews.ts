@@ -7,6 +7,7 @@ import {
   getNewsLikeList,
   getNewsLocalList,
   postNewsComment,
+  toggleNewsLike,
 } from '../api/news.api';
 import { qk } from '@/shared/query/keys';
 import { queryClient } from '@/shared/query/client';
@@ -39,12 +40,6 @@ export function useNewsLikeList(page?: number, size?: number) {
     staleTime: 60_000,
     params: {},
   });
-
-  // return useQuery({
-  //   queryKey: qk.newsLikeList(page, size, sort),
-  //   queryFn: () => getNewsLikeList(page, size, sort),
-  //   staleTime: 60_000,
-  // });
 }
 
 // 뉴스 지역별 + 관심사별 조회
@@ -57,11 +52,6 @@ export function useNewsLocalList(page?: number, size?: number) {
     staleTime: 60_000,
     params: {},
   });
-  // return useQuery({
-  //   queryKey: qk.newsLocalList(page, size, sort),
-  //   queryFn: () => getNewsLocalList(page, size, sort),
-  //   staleTime: 60_000,
-  // });
 }
 
 // 뉴스 관심사별 조회
@@ -74,9 +64,24 @@ export function useNewsInterestList(page?: number, size?: number) {
     staleTime: 60_000,
     params: {},
   });
-  // return useQuery({
-  //   queryKey: qk.newsInterestList(page, size, sort),
-  //   queryFn: () => getNewsInterestList(page, size, sort),
-  //   staleTime: 60_000,
-  // });
+}
+
+// 뉴스 좋아요/좋아요 취소
+export function useNewsLike(
+  newsId: number,
+  opts?: {
+    onSuccess?: () => void;
+    onError?: (e: unknown) => void;
+  }
+) {
+  return useMutation({
+    mutationFn: () => toggleNewsLike(newsId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: qk.newsDetail(newsId) });
+      opts?.onSuccess?.();
+    },
+    onError: (error) => {
+      opts?.onError?.(error);
+    },
+  });
 }

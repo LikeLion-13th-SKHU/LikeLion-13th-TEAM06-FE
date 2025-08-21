@@ -42,7 +42,11 @@ export default function NewsDetail() {
         date={newsDetail?.newsDate || ''}
         summary={newsDetail?.summary || ''}
       />
-      <DetailHelpful />
+      <DetailHelpful
+        articleId={Number(id)}
+        initiallyHelpful={newsDetail?.liked}
+        initiallyCount={newsDetail?.likeCount}
+      />
       <DetailRelatedNews />
       <CommentsSection articleId={Number(id)} initial={newsDetail?.newsComment ?? []} />
     </div>
