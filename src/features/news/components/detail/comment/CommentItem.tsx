@@ -7,6 +7,7 @@ type CommentItemProps = {
   memberName: string;
   memberImageUrl: string;
   content: string;
+  isMyComment: boolean;
   onDelete?: (id: number) => void;
 };
 
@@ -15,6 +16,7 @@ export default function CommentItem({
   memberName,
   memberImageUrl,
   content,
+  isMyComment,
   onDelete,
 }: CommentItemProps) {
   return (
@@ -26,6 +28,11 @@ export default function CommentItem({
       />
       <div className={styles.meta}>
         <span className={styles.nick}>{memberName}</span>
+        {isMyComment && (
+          <span className={styles.badge} aria-label="내 댓글 배지">
+            내 댓글
+          </span>
+        )}
       </div>
       <button className={styles.delBtn} onClick={() => onDelete?.(id)} aria-label="댓글 삭제">
         삭제

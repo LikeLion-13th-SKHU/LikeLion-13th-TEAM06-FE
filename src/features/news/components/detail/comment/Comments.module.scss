@@ -34,7 +34,7 @@
   display: grid;
   grid-template-columns: 40px 1fr auto;
   gap: 8px;
-  align-items: start;
+  align-items: center;
 }
 
 .avatar {
@@ -47,8 +47,8 @@
 
 .meta {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 8px;
 }
 
 .createdAt {
@@ -62,7 +62,7 @@
 
 .nick {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
 }
 .content {
   grid-column: 2 / span 2;
@@ -138,4 +138,21 @@
 
 .inputDock.withVV {
   bottom: calc(env(safe-area-inset-bottom, 0px) + var(--vvb, 0px));
+}
+
+/* 공통 배지 */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid palette('gray-200');
+  background: palette('gray-100');
+  color: palette('gray-500');
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+  width: fit-content;
 }

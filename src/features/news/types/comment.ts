@@ -5,4 +5,5 @@ export type Comment = {
   memberName: string;
   content: string;
   memberImageUrl: string;
+  isMyComment: boolean;
 };
