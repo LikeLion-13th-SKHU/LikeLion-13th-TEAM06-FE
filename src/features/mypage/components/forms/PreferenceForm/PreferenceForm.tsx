@@ -26,7 +26,7 @@ export default function PreferenceForm({
   });
 
   const interests = watch('interests');
-  const region = watch('regionCode');
+  const region = watch('location');
 
   // 관심사 토글
   const toggleInterest = (code: InterestKey) => {
@@ -45,9 +45,9 @@ export default function PreferenceForm({
         <h3 className={styles.title}>관심 지역</h3>
         <RegionSelector
           value={region}
-          onChange={(code) => setValue('regionCode', code, { shouldDirty: true })}
+          onChange={(code) => setValue('location', code, { shouldDirty: true })}
         />
-        {errors.regionCode && <p className={styles.error}>{errors.regionCode.message}</p>}
+        {errors.location && <p className={styles.error}>{errors.location.message}</p>}
       </section>
 
       <section className={styles.section}>
