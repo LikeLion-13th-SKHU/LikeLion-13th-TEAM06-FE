@@ -6,6 +6,7 @@ export type NewsItem = {
   newsDate: string;
   imgUrl?: string;
   likeCount: number;
+  liked: boolean;
 };
 
 export type NewsComment = {
@@ -16,7 +17,6 @@ export type NewsComment = {
 };
 
 export type NewsDetail = NewsItem & {
-  liked: boolean;
   content: string;
   comments: NewsComment[];
   relatedNews: NewsItem[];

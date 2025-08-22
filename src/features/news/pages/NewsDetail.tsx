@@ -20,7 +20,6 @@ export default function NewsDetail() {
     setConfig({
       kind: 'detail',
       title: '뉴스 상세',
-      backTo: '/',
       rightActions: [
         {
           id: 'share',
@@ -31,7 +30,7 @@ export default function NewsDetail() {
         },
       ],
     });
-  }, [setConfig]);
+  }, []);
 
   const { data: newsDetail } = useNewsDetail(Number(id));
   return (
@@ -41,8 +40,13 @@ export default function NewsDetail() {
         htmlContent={newsDetail?.content || ''}
         date={newsDetail?.newsDate || ''}
         summary={newsDetail?.summary || ''}
+        interestTypes={newsDetail?.interestTypes[0] || ''}
       />
-      <DetailHelpful />
+      <DetailHelpful
+        articleId={Number(id)}
+        initiallyHelpful={newsDetail?.liked}
+        initiallyCount={newsDetail?.likeCount}
+      />
       <DetailRelatedNews />
       <CommentsSection articleId={Number(id)} initial={newsDetail?.newsComment ?? []} />
     </div>

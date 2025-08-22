@@ -47,6 +47,7 @@ export default function CommentsSection({ articleId, initial }: CommentsSectionP
             memberName={c.memberName}
             memberImageUrl={c.memberImageUrl}
             content={c.content}
+            isMyComment={c.isMyComment}
           />
         ))}
         {initial?.length === 0 && (

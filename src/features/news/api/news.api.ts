@@ -58,3 +58,9 @@ export const getNewsInterestList = async (page?: number, size?: number, sort?: s
   const response = await instance.get(`/news/personal${query ? `?${query}` : ''}`);
   return response.data.data;
 };
+
+// 뉴스 좋아요/좋아요 취소
+export const toggleNewsLike = async (newsId: number) => {
+  const response = await instance.post(`/news/like`, { newsId });
+  return response.data.data;
+};

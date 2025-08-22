@@ -1,15 +1,13 @@
 // src/features/mypage/types/user.ts
 
-import type { RegionCode } from '@/shared/constants/region';
 import type { InterestKey } from '@/shared/constants/interests';
+import type { RegionCode } from '@/shared/constants/region';
 
 export type User = {
-  id: number;
+  age: number;
+  interests: InterestKey[];
+  location: RegionCode;
+  memberPictureUrl: string;
   nickname: string;
-  email: string;
-  avatarUrl: string;
-  likeCount: number;
-  commentCount: number;
-  interests?: InterestKey[];
-  region?: RegionCode;
+  profileCompleted: boolean;
 };

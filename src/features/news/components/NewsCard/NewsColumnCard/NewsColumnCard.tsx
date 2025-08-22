@@ -3,6 +3,7 @@
 import type { NewsItem } from '@/features/news/types/news';
 import styles from './NewsColumnCard.module.scss';
 import likeIcon from '@/assets/svg/like.svg';
+import SolidLike from '@/assets/svg/solidLike.svg';
 import { useNavigate } from 'react-router-dom';
 
 export default function NewsColumnCard({ item }: { item: NewsItem }) {
@@ -18,7 +19,7 @@ export default function NewsColumnCard({ item }: { item: NewsItem }) {
           <h3 className={styles.newsColumnCardTitle}>{item.title}</h3>
           <div className={styles.newsColumnCardInfo}>
             <div className={styles.newsColumnCardLikes}>
-              <img src={likeIcon} alt="좋아요" />
+              <img src={item.liked ? SolidLike : likeIcon} alt="좋아요" />
               <span>{item.likeCount}</span>
             </div>
             <p>{item.newsDate}</p>
