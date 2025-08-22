@@ -41,6 +41,7 @@ export default function NewsDetail() {
         htmlContent={newsDetail?.content || ''}
         date={newsDetail?.newsDate || ''}
         summary={newsDetail?.summary || ''}
+        interestTypes={newsDetail?.interestTypes[0] || ''}
       />
       <DetailHelpful
         articleId={Number(id)}
