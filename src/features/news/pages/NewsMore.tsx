@@ -21,9 +21,8 @@ export default function NewsMore({ title, section }: NewsMoreProps) {
     setConfig({
       kind: 'page',
       title,
-      backTo: '/',
     });
-  }, [setConfig, title]);
+  }, [title]);
 
   const { data, hasNextPage, isFetchingNextPage, fetchNextPage } =
     section === 'hot'

@@ -27,9 +27,8 @@ export default function EditPreferencePage() {
     setConfig({
       kind: 'page',
       title: '관심사 및 지역 편집',
-      backTo: '/mypage',
     });
-  }, [setConfig]);
+  }, []);
 
   return (
     <div style={{ padding: '16px 0' }}>

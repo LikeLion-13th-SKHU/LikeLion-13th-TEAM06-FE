@@ -11,9 +11,8 @@ export default function MyPage() {
     setConfig({
       kind: 'page',
       title: '프로필',
-      backTo: '/',
     });
-  }, [setConfig]);
+  }, []);
   return (
     <div style={{ padding: '16px 0' }}>
       <MyPageHome />

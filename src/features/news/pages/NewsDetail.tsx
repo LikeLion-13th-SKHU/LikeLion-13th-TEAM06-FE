@@ -20,7 +20,6 @@ export default function NewsDetail() {
     setConfig({
       kind: 'detail',
       title: '뉴스 상세',
-      backTo: '/',
       rightActions: [
         {
           id: 'share',
@@ -31,7 +30,7 @@ export default function NewsDetail() {
         },
       ],
     });
-  }, [setConfig]);
+  }, []);
 
   const { data: newsDetail } = useNewsDetail(Number(id));
   return (

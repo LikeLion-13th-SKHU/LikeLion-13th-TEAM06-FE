@@ -27,9 +27,8 @@ export default function EditProfilePage() {
     setConfig({
       kind: 'page',
       title: '프로필 편집',
-      backTo: '/mypage',
     });
-  }, [setConfig]);
+  }, []);
 
   // 추후 로딩 컴포넌트 추가
   if (isLoading) return <div style={{ padding: 16 }}>로딩중…</div>;

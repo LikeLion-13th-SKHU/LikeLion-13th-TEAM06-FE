@@ -11,9 +11,8 @@ export default function EventsMorePage() {
     setConfig({
       kind: 'page',
       title: '🎨 행사/전시',
-      backTo: '/',
     });
-  }, [setConfig]);
+  }, []);
 
   return (
     <div style={{ padding: '16px 0' }}>

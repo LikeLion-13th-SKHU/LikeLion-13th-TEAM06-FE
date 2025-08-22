@@ -16,7 +16,7 @@ export default function HomePage() {
         { id: 'notification', label: '알림' },
       ],
     });
-  }, [setConfig]);
+  }, []);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', margin: '16px 0' }}>

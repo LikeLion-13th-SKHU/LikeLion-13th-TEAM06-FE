@@ -8,6 +8,7 @@ import userIcon from '@/assets/svg/user.svg';
 import chevronLeftIcon from '@/assets/svg/chevronLeft.svg';
 import shareIcon from '@/assets/svg/export.svg';
 import logo from '@/assets/svg/dongnering_icon_left.svg';
+import { useNavigate } from 'react-router-dom';
 
 function ActionIcon({ id, onClick, label }: { id: string; onClick?: () => void; label?: string }) {
   const icon =
@@ -29,6 +30,8 @@ function ActionIcon({ id, onClick, label }: { id: string; onClick?: () => void; 
 }
 
 export default function Header({ config }: { config: HeaderConfig }) {
+  const navigate = useNavigate();
+
   if (config.kind === 'none') return null;
 
   const hidden = useHideOnScroll(12);
@@ -63,7 +66,7 @@ export default function Header({ config }: { config: HeaderConfig }) {
             <button
               className="icon"
               aria-label="뒤로가기"
-              onClick={() => (config.backTo ? (location.href = config.backTo) : history.back())}
+              onClick={() => (config.backTo ? (location.href = config.backTo) : navigate(-1))}
             >
               <img src={chevronLeftIcon} alt="뒤로가기" width="24" height="24" />
             </button>
@@ -74,7 +77,7 @@ export default function Header({ config }: { config: HeaderConfig }) {
             style={{ visibility: 'hidden' }}
             className="icon"
             aria-label="뒤로가기"
-            onClick={() => (config.backTo ? (location.href = config.backTo) : history.back())}
+            onClick={() => (config.backTo ? (location.href = config.backTo) : navigate(-1))}
           >
             <img src={chevronLeftIcon} alt="뒤로가기" width="24" height="24" />
           </button>
@@ -91,7 +94,7 @@ export default function Header({ config }: { config: HeaderConfig }) {
             <button
               className="icon"
               aria-label="뒤로가기"
-              onClick={() => (config.backTo ? (location.href = config.backTo) : history.back())}
+              onClick={() => (config.backTo ? (location.href = config.backTo) : navigate(-1))}
             >
               <img src={chevronLeftIcon} alt="뒤로가기" width="24" height="24" />
             </button>
