@@ -10,6 +10,7 @@ export const newsMock: NewsItem[] = [
     imgUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
     likeCount: 10,
     newsDate: '2025.01.01',
+    liked: false,
   },
   {
     newsId: 2,
@@ -18,6 +19,7 @@ export const newsMock: NewsItem[] = [
     imgUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
     likeCount: 20,
     newsDate: '2025.01.01',
+    liked: false,
   },
   {
     newsId: 3,
@@ -26,6 +28,7 @@ export const newsMock: NewsItem[] = [
     imgUrl: 'https://i.redd.it/m06ssnmxbg2e1.png',
     likeCount: 20,
     newsDate: '2025.01.01',
+    liked: false,
   },
 ];
 
