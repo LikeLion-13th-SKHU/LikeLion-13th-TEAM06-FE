@@ -1,7 +1,9 @@
 // src/features/mypage/hooks/useMyPage.ts
 
 import { useOffsetInfinite } from '@/shared/hooks/useInfinityQuery';
-import { getMypageComments, getMypageLikes } from '../api/mypage.api';
+import { getMypageComments, getMypageInfo, getMypageLikes } from '../api/mypage.api';
+import { qk } from '@/shared/query/keys';
+import { useQuery } from '@tanstack/react-query';
 
 // 좋아요 목록 조회
 export function useMyPageLikesInfinite(size?: number) {
@@ -24,5 +26,13 @@ export function useMyPageCommentsInfinite(size?: number) {
     startPage: 0,
     staleTime: 60_000,
     params: {},
+  });
+}
+
+// 내 정보 조회
+export function useMyPageInfo() {
+  return useQuery({
+    queryKey: qk.mypage(),
+    queryFn: getMypageInfo,
   });
 }

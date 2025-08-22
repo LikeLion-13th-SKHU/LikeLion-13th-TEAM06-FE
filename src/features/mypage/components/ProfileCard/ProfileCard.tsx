@@ -8,12 +8,12 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function ProfileCard({ user }: { user: User }) {
   const navigate = useNavigate();
   const interests = user.interests ?? [];
-  const regionText = user.region ?? '-';
+  const regionText = user.location ?? '-';
 
   return (
     <section className={styles.card}>
       <button className={styles.avatarBtn} aria-label="프로필 이미지 변경">
-        <img src={user.avatarUrl} alt="프로필 이미지" />
+        <img src={user.memberPictureUrl} alt="프로필 이미지" />
       </button>
       <div className={styles.info}>
         <div className={styles.nameRow}>

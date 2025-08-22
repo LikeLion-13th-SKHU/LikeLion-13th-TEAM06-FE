@@ -10,4 +10,5 @@ export const qk = {
   newsInterestList: (page?: number, size?: number, sort?: string) =>
     ['news', 'interest', page, size, sort] as const,
   events: (page?: number, size?: number, sort?: string) => ['events', page, size, sort] as const,
+  mypage: (params?: object) => ['mypage', params] as const,
 };
