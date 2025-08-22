@@ -10,6 +10,7 @@ interface DetailBodyProps {
   date: string;
   summary: string[];
   interestTypes: string;
+  tags: string[];
 }
 
 export default function DetailBody({
@@ -18,6 +19,7 @@ export default function DetailBody({
   date,
   summary,
   interestTypes,
+  tags,
 }: DetailBodyProps) {
   // 뉴스 카테고리가 없으면 렌더링 하지 않음
   if (!interestTypes) return null;
@@ -35,7 +37,7 @@ export default function DetailBody({
         <p className={styles.newsDetailBodyDate}>{date}</p>
       </div>
 
-      <SummaryCard tags={['정책', '안전', '지자체', '가이드라인']} bullets={summary} />
+      <SummaryCard tags={tags} bullets={summary} />
       <div
         className={styles.newsDetailBodyContent}
         dangerouslySetInnerHTML={{ __html: htmlContent }}
