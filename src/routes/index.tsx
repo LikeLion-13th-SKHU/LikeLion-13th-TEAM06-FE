@@ -9,6 +9,9 @@ import EventsMore from '@/pages/events/EventsMorePage';
 import MyPage from '@/pages/mypage/MyPage';
 import EditProfilePage from '@/pages/mypage/EditProfilePage';
 import EditInterestPage from '@/pages/mypage/EditPreferencePage';
+import LoginPage from '@/pages/login/LoginPage';
+import OnBoardingPage from '@/pages/onboarding/OnBoardingPage';
+import AuthCallback from '@/pages/auth/AuthCallback';
 
 export default function AppRoutes() {
   return (
@@ -22,6 +25,9 @@ export default function AppRoutes() {
       <Route path="/mypage" element={<MyPage />} />
       <Route path="/mypage/edit-profile" element={<EditProfilePage />} />
       <Route path="/mypage/edit-interests" element={<EditInterestPage />} />
+      <Route path="/onboarding" element={<OnBoardingPage />} />
+      <Route path='/oauth/:provider' element={<AuthCallback />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 }
