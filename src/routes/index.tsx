@@ -30,7 +30,7 @@ export default function AppRoutes() {
       <Route path="/mypage/edit-profile" element={<EditProfilePage />} />
       <Route path="/mypage/edit-interests" element={<EditInterestPage />} />
       <Route path="/onboarding" element={<OnBoardingPage />} />
-      <Route path='/oauth/:provider' element={<AuthCallback />} />
+      <Route path="/oauth/:provider" element={<AuthCallback />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/onboarding" element={<OnBoardingPage />} />         {/* 생년월일 */}
       <Route path="/onboarding/region" element={<RegionPage />} />
