@@ -32,8 +32,6 @@ function ActionIcon({ id, onClick, label }: { id: string; onClick?: () => void; 
 export default function Header({ config }: { config: HeaderConfig }) {
   const navigate = useNavigate();
 
-  if (config.kind === 'none') return null;
-
   const hidden = useHideOnScroll(12);
   const isHidden = !!config.autoHide && hidden;
 
@@ -44,6 +42,8 @@ export default function Header({ config }: { config: HeaderConfig }) {
       ))}
     </div>
   );
+
+  if (config.kind === 'none') return null;
 
   if (config.kind === 'main') {
     return (
