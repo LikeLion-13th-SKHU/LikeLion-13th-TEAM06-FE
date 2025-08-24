@@ -1,6 +1,8 @@
-import { useMemo, useState } from "react";
+// src/pages/onboarding/OnBoardingPage.tsx
+import { useEffect, useMemo, useState } from "react"; // ★ useEffect 추가
 import { useNavigate } from "react-router-dom";
 import styles from "./OnBoardingPage.module.scss";
+import { getDraft, mergeDraft } from "@/shared/utils/onboardingDraft"; // ★ 추가
 
 export default function OnBoardingPage() {
   const nav = useNavigate();
@@ -17,6 +19,16 @@ export default function OnBoardingPage() {
   const [month, setMonth] = useState<number | "">("");
   const [day, setDay] = useState<number | "">("");
 
+  // ★ 마운트 시 로컬스토리지 값으로 복원
+  useEffect(() => {
+    const draft = getDraft();
+    if (draft.birth) {
+      setYear(draft.birth.year ?? "");
+      setMonth(draft.birth.month ?? "");
+      setDay(draft.birth.day ?? "");
+    }
+  }, []);
+
   const valid = useMemo(() => {
     if (!year || !month || !day) return false;
     const d = new Date(Number(year), Number(month) - 1, Number(day));
@@ -26,6 +38,13 @@ export default function OnBoardingPage() {
       d.getDate() === Number(day)
     );
   }, [year, month, day]);
+
+  // ★ 다음 버튼에서 드래프트 저장 후 이동
+  const goNext = () => {
+    if (!valid) return;
+    mergeDraft({ birth: { year: Number(year), month: Number(month), day: Number(day) } });
+    nav("/onboarding/region"); // 기존 로직 유지
+  };
 
   return (
     <div className={styles.page}>
@@ -88,7 +107,7 @@ export default function OnBoardingPage() {
       <div className={styles.footer}>
         <button
           className={styles.nextBtn}
-          onClick={() => nav("/onboarding/region")}
+          onClick={goNext}                 // ★ 변경
           disabled={!valid}
         >
           다음 →

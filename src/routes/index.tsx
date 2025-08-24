@@ -12,6 +12,10 @@ import EditInterestPage from '@/pages/mypage/EditPreferencePage';
 import LoginPage from '@/pages/login/LoginPage';
 import OnBoardingPage from '@/pages/onboarding/OnBoardingPage';
 import AuthCallback from '@/pages/auth/AuthCallback';
+import RegionPage from '@/pages/onboarding/RegionPage';
+import RegionSelectPage from '@/pages/onboarding/RegionSelectPage';
+import InterestsPage from '@/pages/onboarding/InterestsPage';
+import FinishPage from '@/pages/onboarding/FinishPage';
 
 export default function AppRoutes() {
   return (
@@ -28,6 +32,11 @@ export default function AppRoutes() {
       <Route path="/onboarding" element={<OnBoardingPage />} />
       <Route path='/oauth/:provider' element={<AuthCallback />} />
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/onboarding" element={<OnBoardingPage />} />         {/* 생년월일 */}
+      <Route path="/onboarding/region" element={<RegionPage />} />
+      <Route path="/onboarding/region/select" element={<RegionSelectPage />} />
+      <Route path="/onboarding/interests" element={<InterestsPage />} />
+      <Route path="/onboarding/finish" element={<FinishPage />} />
     </Routes>
   );
 }
