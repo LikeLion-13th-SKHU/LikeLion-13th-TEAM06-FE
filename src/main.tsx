@@ -9,23 +9,21 @@ import { HeaderProvider } from './shared/contexts/HeaderContext';
 import { ToastProvider } from './shared/contexts/ToastContext';
 import { queryClient } from '@/shared/query/client';
 import { QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
+const root = createRoot(document.getElementById('root')!);
 
-
-createRoot(document.getElementById('root')!).render(
-  //<StrictMode>
+root.render(
+  <StrictMode>
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <HeaderProvider>
           <ToastProvider>
             <App />
-            <ReactQueryDevtools initialIsOpen={false} />
+            {/* <ReactQueryDevtools initialIsOpen={false} /> */}
           </ToastProvider>
         </HeaderProvider>
-      </QueryClientProvider> 
+      </QueryClientProvider>
     </BrowserRouter>
-  //</StrictMode>
+  </StrictMode>
 );
-
-
