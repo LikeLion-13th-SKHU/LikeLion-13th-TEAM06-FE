@@ -1,55 +1,46 @@
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./OnBoardingPage.module.scss";
-import { getDraft, mergeDraft } from "@/shared/utils/onboardingDraft";
+import { useOnboardingStore } from "./useOnboardingStore";
+import styles from "./InterestsPage.module.scss";
 
-const INTERESTS = ["IT/테크","경제/금융","정치","여행","스포츠"] as const;
+const INTERESTS = ["스포츠","문화","경제","정치","생활","여행","기타"];
 
 export default function InterestsPage() {
   const nav = useNavigate();
-  const [selected, setSelected] = useState<string[]>([]);
-
-  // 복원
-  useEffect(() => {
-    const d = getDraft();
-    if (d.interests) setSelected(d.interests);
-  }, []);
-
-  const toggle = (it: string) => {
-    setSelected((prev) => prev.includes(it) ? prev.filter((v) => v !== it) : [...prev, it]);
-  };
-
-  const onNext = () => {
-    if (!selected.length) return;
-    mergeDraft({ interests: selected });
-    nav("/onboarding/finish");
-  };
+  const { interests, toggleInterest } = useOnboardingStore();
+  const canNext = interests.length > 0;
 
   return (
-    <div className={styles.page}>
-      {/* ... */}
-      <section className={styles.body}>
-        <div className={styles.bar} aria-hidden />
-        <h1 className={styles.title}>관심사</h1>
-        <p className={styles.subtitle}>관심 있는 주제를 선택해 주세요.</p>
+    <div className={styles.container}>
+      <div className={styles.stepBar}>
+        <span className={`${styles.dot} ${styles.active}`} />
+        <span className={`${styles.dot} ${styles.active}`} />
+        <span className={`${styles.dot} ${styles.active}`} />
+      </div>
 
-        <div className={styles.grid}>
-          {INTERESTS.map((it) => (
-            <button key={it} type="button"
-              className={`${styles.chip} ${selected.includes(it) ? styles.chipSelected : ""}`}
-              onClick={() => toggle(it)}
+      <h2 className={styles.title}>관심사를 선택해 주세요</h2>
+      <p className={styles.desc}>최소 1개 이상 선택해 주세요</p>
+
+      <div className={styles.formArea}>
+        <div className={styles.chips}>
+          {INTERESTS.map((i) => (
+            <button
+              key={i}
+              className={`${styles.chip} ${interests.includes(i) ? styles.activeChip : ""}`}
+              onClick={() => toggleInterest(i)}
             >
-              {it}
+              {i}
             </button>
           ))}
         </div>
-      </section>
+      </div>
 
-      <div className={styles.footer}>
-        <button className={styles.nextBtn} onClick={onNext} disabled={!selected.length}>
-          다음 →
+      <div className={styles.actions}>
+        <button className={styles.ghost} onClick={() => nav("/onboarding/residence")}>이전</button>
+        <button className={styles.primary} disabled={!canNext} onClick={() => nav("/onboarding/finish")}>
+          다음
         </button>
       </div>
     </div>
   );
 }
+

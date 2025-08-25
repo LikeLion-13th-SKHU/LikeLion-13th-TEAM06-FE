@@ -1,0 +1,11 @@
+@use "./common" as *;
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+
+
+

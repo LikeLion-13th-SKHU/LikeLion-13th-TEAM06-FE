@@ -1,61 +1,52 @@
-// src/pages/onboarding/FinishPage.tsx
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./OnBoardingPage.module.scss";
-import { clearDraft, getDraft, type OnboardingDraft } from "@/shared/utils/onboardingDraft";
-import axios from "axios";
-
-const API_BASE = import.meta.env.VITE_API_BASE_URL; // 예: https://book-hub.site
+import { useOnboardingStore } from "./useOnboardingStore";
+import styles from "./FinishPage.module.scss";
+import { useState } from "react";
 
 export default function FinishPage() {
   const nav = useNavigate();
-  const [draft, setDraft] = useState<OnboardingDraft>({});
-  const [loading, setLoading] = useState(false);
+  const { dob, residence, interests, submitAll, isSubmitting } = useOnboardingStore();
+  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    setDraft(getDraft());
-  }, []);
-
-  const submit = async () => {
-    if (!draft.birth || !draft.region || !draft.interests?.length) {
-      alert("입력되지 않은 항목이 있습니다.");
-      return;
-    }
-    setLoading(true);
+  const handleSubmit = async () => {
+    setError(null);
     try {
-      await axios.post(`${API_BASE}/api/v1/onboarding`, {
-        birth: draft.birth,           // {year, month, day}
-        region: draft.region,         // "서울 강남구"
-        interests: draft.interests,   // ["IT/테크", "경제"]
-      });
-      clearDraft();                   // ★ 성공 시 드래프트 제거
-      nav("/", { replace: true });
+      await submitAll();
+      nav("/home", { replace: true });
     } catch (e: any) {
-      alert(e?.response?.data?.message ?? "제출에 실패했습니다. 다시 시도해 주세요.");
-    } finally {
-      setLoading(false);
+      setError(e?.message ?? "제출 중 문제가 발생했습니다.");
     }
   };
 
   return (
-    <div className={styles.page}>
-      <section className={styles.body} style={{ gap: 16 }}>
-        <div className={styles.bar} aria-hidden />
-        <h1 className={styles.title}>모두 완료!</h1>
-        <p className={styles.subtitle}>
-          생년월일: {draft.birth ? `${draft.birth.year}.${draft.birth.month}.${draft.birth.day}` : "미입력"}
-          <br />
-          지역: {draft.region ?? "미입력"}
-          <br />
-          관심사: {draft.interests?.join(", ") ?? "미입력"}
-        </p>
-      </section>
+    <div className={styles.container}>
+      <div className={styles.stepBar}>
+        <span className={`${styles.dot} ${styles.active}`} />
+        <span className={`${styles.dot} ${styles.active}`} />
+        <span className={`${styles.dot} ${styles.active}`} />
+      </div>
 
-      <div className={styles.footer}>
-        <button className={styles.nextBtn} onClick={submit} disabled={loading}>
-          {loading ? "제출 중..." : "동네링 시작하기"}
+      <h2 className={styles.title}>동네링 시작하기</h2>
+      <p className={styles.desc}>입력하신 정보를 확인해 주세요</p>
+
+      <div className={styles.formArea}>
+        <div className={styles.card}>
+          <div><b>생년월일</b> : {dob.year}-{dob.month}-{dob.day}</div>
+          <div><b>거주지</b> : {residence.region}</div>
+          <div><b>관심사</b> : {interests.join(", ")}</div>
+        </div>
+        {error && <div className={styles.error}>{error}</div>}
+      </div>
+
+      <div className={styles.actions}>
+        <button className={styles.ghost} onClick={() => nav("/onboarding/interests")}>수정하기</button>
+        <button className={styles.primary} onClick={handleSubmit} disabled={isSubmitting}>
+          {isSubmitting ? "제출 중..." : "시작하기"}
         </button>
       </div>
     </div>
   );
 }
+
+
+
