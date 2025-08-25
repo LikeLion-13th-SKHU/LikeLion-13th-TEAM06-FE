@@ -1,0 +1,20 @@
+@use "./common" as *;
+
+.card {
+  padding: 16px;
+  border: 1px solid var(--chip-border);
+  border-radius: 16px;
+  background: #fff;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.error {
+  color: #d00;
+  margin-top: 12px;
+}
+
+
+
+
+

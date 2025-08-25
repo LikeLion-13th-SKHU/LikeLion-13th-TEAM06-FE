@@ -2,13 +2,14 @@
 
 import styles from './EventCardHorizontal.module.scss';
 import { type EventItem } from '../../types/event';
+import Image from '@/assets/img/image.png';
 
 export default function EventCardHorizontal({ item }: { item: EventItem }) {
   return (
     <article role="article" aria-label="이벤트 카드" className={styles.root}>
       <div className={styles.eventCardRoot}>
         <div className={styles.eventCardThumb}>
-          <img src={item.imageUrl} alt={item.title} loading="lazy" />
+          <img src={item.imageUrl || Image} alt={item.title} loading="lazy" />
         </div>
 
         <div className={styles.content}>

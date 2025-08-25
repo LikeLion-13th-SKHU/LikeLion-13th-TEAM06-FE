@@ -11,7 +11,7 @@ export default function MyPage() {
     setConfig({
       kind: 'page',
       title: '프로필',
-      backTo: '/',
+      backTo: '/home',
     });
   }, []);
   return (
