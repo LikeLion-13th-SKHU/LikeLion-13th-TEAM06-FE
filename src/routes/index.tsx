@@ -1,30 +1,30 @@
 // src/routes/index.tsx
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from 'react-router-dom';
 
-import HomePage from "@/pages/HomePage";
-import NewsMoreHotPage from "@/pages/news/NewsMoreHotPage";
-import NewsMoreForYouPage from "@/pages/news/NewsMoreForYouPage";
-import NewsMoreLocalPage from "@/pages/news/NewsMoreLocalPage";
-import NewsDetailPage from "@/pages/news/NewsDetailPage";
-import EventsMore from "@/pages/events/EventsMorePage";
+import HomePage from '@/pages/HomePage';
+import NewsMoreHotPage from '@/pages/news/NewsMoreHotPage';
+import NewsMoreForYouPage from '@/pages/news/NewsMoreForYouPage';
+import NewsMoreLocalPage from '@/pages/news/NewsMoreLocalPage';
+import NewsDetailPage from '@/pages/news/NewsDetailPage';
+import EventsMore from '@/pages/events/EventsMorePage';
 
-import MyPage from "@/pages/mypage/MyPage";
-import EditProfilePage from "@/pages/mypage/EditProfilePage";
-import EditInterestPage from "@/pages/mypage/EditPreferencePage";
+import MyPage from '@/pages/mypage/MyPage';
+import EditProfilePage from '@/pages/mypage/EditProfilePage';
+import EditInterestPage from '@/pages/mypage/EditPreferencePage';
 
-import LoginPage from "@/pages/login/LoginPage";
-import AuthCallback from "@/pages/auth/AuthCallback";
+import LoginPage from '@/pages/login/LoginPage';
+import AuthCallback from '@/pages/auth/AuthCallback';
 
 // 온보딩 페이지들 import
-import OnBoardingPage from "@/pages/onboarding/OnBoardingPage";
-import ResidencePage from "@/pages/onboarding/ResidencePage";
-import InterestsPage from "@/pages/onboarding/InterestsPage";
-import FinishPage from "@/pages/onboarding/FinishPage";
+import OnBoardingPage from '@/pages/onboarding/OnBoardingPage';
+import ResidencePage from '@/pages/onboarding/ResidencePage';
+import InterestsPage from '@/pages/onboarding/InterestsPage';
+import FinishPage from '@/pages/onboarding/FinishPage';
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      <Route path="/home" element={<HomePage />} />
 
       {/* 뉴스 */}
       <Route path="/news/hot" element={<NewsMoreHotPage />} />
@@ -41,7 +41,7 @@ export default function AppRoutes() {
       <Route path="/mypage/edit-interests" element={<EditInterestPage />} />
 
       {/* 인증 */}
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/" element={<LoginPage />} />
       <Route path="/oauth/:provider" element={<AuthCallback />} />
 
       {/* 온보딩 */}

@@ -65,7 +65,7 @@ export default function LoginPage() {
 
   return (
     <div className={styles.page}>
-      <div className={styles.top}> 
+      <div className={styles.top}>
         <h1 className={styles.title}>동네링</h1>
         <p className={styles.subtitle}>나만을 위한 맞춤형 뉴스</p>
       </div>

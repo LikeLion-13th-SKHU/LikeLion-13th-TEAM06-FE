@@ -1,7 +1,7 @@
-import { useMemo } from "react";
-import { useNavigate } from "react-router-dom";
-import { useOnboardingStore } from "./useOnboardingStore";
-import styles from "./OnBoardingPage.module.scss";
+import { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useOnboardingStore } from './useOnboardingStore';
+import styles from './OnBoardingPage.module.scss';
 
 export default function OnBoardingPage() {
   const nav = useNavigate();
@@ -36,27 +36,33 @@ export default function OnBoardingPage() {
         <div className={styles.row}>
           <select
             className={styles.select}
-            value={dob.year ?? ""}
+            value={dob.year ?? ''}
             onChange={(e) => setDob({ year: Number(e.target.value) })}
           >
             <option value="">년</option>
-            {years.map((y) => <option key={y}>{y}</option>)}
+            {years.map((y) => (
+              <option key={y}>{y}</option>
+            ))}
           </select>
           <select
             className={styles.select}
-            value={dob.month ?? ""}
+            value={dob.month ?? ''}
             onChange={(e) => setDob({ month: Number(e.target.value) })}
           >
             <option value="">월</option>
-            {months.map((m) => <option key={m}>{m}</option>)}
+            {months.map((m) => (
+              <option key={m}>{m}</option>
+            ))}
           </select>
           <select
             className={styles.select}
-            value={dob.day ?? ""}
+            value={dob.day ?? ''}
             onChange={(e) => setDob({ day: Number(e.target.value) })}
           >
             <option value="">일</option>
-            {days.map((d) => <option key={d}>{d}</option>)}
+            {days.map((d) => (
+              <option key={d}>{d}</option>
+            ))}
           </select>
         </div>
       </div>
@@ -65,7 +71,7 @@ export default function OnBoardingPage() {
         <button
           className={styles.primary}
           disabled={!canNext}
-          onClick={() => nav("/onboarding/residence")}
+          onClick={() => nav('/onboarding/residence')}
         >
           다음
         </button>
@@ -73,5 +79,3 @@ export default function OnBoardingPage() {
     </div>
   );
 }
-
-

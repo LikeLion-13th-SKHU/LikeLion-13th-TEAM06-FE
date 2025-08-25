@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
-import { useOnboardingStore } from "./useOnboardingStore";
-import styles from "./InterestsPage.module.scss";
-
-const INTERESTS = ["스포츠","문화","경제","정치","생활","여행","기타"];
+import { useNavigate } from 'react-router-dom';
+import { useOnboardingStore } from './useOnboardingStore';
+import styles from './InterestsPage.module.scss';
+import { INTERESTS } from '@/shared/constants/interests';
+import InterestChip from '@/features/mypage/components/forms/PreferenceForm/InterestChip/InterestChip';
 
 export default function InterestsPage() {
   const nav = useNavigate();
@@ -22,25 +22,29 @@ export default function InterestsPage() {
 
       <div className={styles.formArea}>
         <div className={styles.chips}>
-          {INTERESTS.map((i) => (
-            <button
-              key={i}
-              className={`${styles.chip} ${interests.includes(i) ? styles.activeChip : ""}`}
-              onClick={() => toggleInterest(i)}
-            >
-              {i}
-            </button>
+          {Object.values(INTERESTS).map((it) => (
+            <InterestChip
+              key={it.code}
+              selected={interests.includes(it.code)}
+              label={`${it.emoji} ${it.label}`}
+              onClick={() => toggleInterest(it.code)}
+            />
           ))}
         </div>
       </div>
 
       <div className={styles.actions}>
-        <button className={styles.ghost} onClick={() => nav("/onboarding/residence")}>이전</button>
-        <button className={styles.primary} disabled={!canNext} onClick={() => nav("/onboarding/finish")}>
+        <button className={styles.ghost} onClick={() => nav('/onboarding/residence')}>
+          이전
+        </button>
+        <button
+          className={styles.primary}
+          disabled={!canNext}
+          onClick={() => nav('/onboarding/finish')}
+        >
           다음
         </button>
       </div>
     </div>
   );
 }
-

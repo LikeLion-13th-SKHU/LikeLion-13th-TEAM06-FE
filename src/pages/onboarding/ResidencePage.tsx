@@ -1,11 +1,7 @@
-import { useNavigate } from "react-router-dom";
-import { useOnboardingStore } from "./useOnboardingStore";
-import styles from "./ResidencePage.module.scss";
-
-const REGIONS = [
-  "서울","부산","대구","인천","광주","대전","울산","세종",
-  "경기","강원","충북","충남","전북","전남","경북","경남","제주"
-];
+import { useNavigate } from 'react-router-dom';
+import { useOnboardingStore } from './useOnboardingStore';
+import styles from './ResidencePage.module.scss';
+import RegionSelector from '@/features/mypage/components/forms/PreferenceForm/RegionSelector/RegionSelector';
 
 export default function ResidencePage() {
   const nav = useNavigate();
@@ -24,25 +20,20 @@ export default function ResidencePage() {
       <p className={styles.desc}>선택하신 지역 기반으로 더 맞춤형 소식을 보여드려요.</p>
 
       <div className={styles.formArea}>
-        <div className={styles.chips}>
-          {REGIONS.map((r) => (
-            <button
-              key={r}
-              className={`${styles.chip} ${residence.region === r ? styles.activeChip : ""}`}
-              onClick={() => setResidence({ region: r })}
-            >
-              {r}
-            </button>
-          ))}
-        </div>
+        <RegionSelector
+          value={residence.region ?? ''}
+          onChange={(code) => setResidence({ region: code })}
+        />
       </div>
 
       <div className={styles.actions}>
-        <button className={styles.ghost} onClick={() => nav("/onboarding/dob")}>이전</button>
+        <button className={styles.ghost} onClick={() => nav('/onboarding/dob')}>
+          이전
+        </button>
         <button
           className={styles.primary}
           disabled={!canNext}
-          onClick={() => nav("/onboarding/interests")}
+          onClick={() => nav('/onboarding/interests')}
         >
           다음
         </button>
@@ -50,7 +41,3 @@ export default function ResidencePage() {
     </div>
   );
 }
-
-
-
-
